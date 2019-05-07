@@ -8,6 +8,11 @@
     	"name": "Evan Plaice",
     	"email": "evan.plaice@gmail.com",
     	"url": "http://evanplaice.com"
+  	},
+    {
+    	"name": "Colton Ehrman",
+    	"email": "coltonje95@gmail.com",
+    	"url": "http://coltonehrman.com"
   	}
   ],
   "repository": "http://github.com/vanillajs2/csv/",
