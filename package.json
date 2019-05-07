@@ -1,0 +1,18 @@
+{
+  "name": "@typeiii/csv",
+  "version": "0.0.0",
+  "description": "A modern, fast, RFC 4180 compliant parser for JS",
+  "license": "MIT",
+  "contributors": [
+  	{
+    	"name": "Evan Plaice",
+    	"email": "evan.plaice@gmail.com",
+    	"url": "http://evanplaice.com"
+  	}
+  ],
+  "repository": "http://github.com/typeiii/csv/",
+  "main": "",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+}
