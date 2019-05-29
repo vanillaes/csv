@@ -11,8 +11,10 @@
   	}
   ],
   "repository": "http://github.com/typeiii/csv/",
-  "main": "",
-  "scripts": {},
+  "main": "src/csv.js",
+  "scripts": {
+    "test": "npx tape ./**/*..spec.js" 
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {}
 }
