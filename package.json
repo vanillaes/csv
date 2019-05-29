@@ -1,5 +1,5 @@
 {
-  "name": "@typeiii/csv",
+  "name": "@typeiii/csv-js",
   "version": "0.0.0",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "license": "MIT",
