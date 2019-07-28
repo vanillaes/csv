@@ -1,5 +1,5 @@
 {
-  "name": "@typeiii/csv-js",
+  "name": "@vanillajs2/csv",
   "version": "0.0.0",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "license": "MIT",
@@ -10,7 +10,7 @@
     	"url": "http://evanplaice.com"
   	}
   ],
-  "repository": "http://github.com/typeiii/csv/",
+  "repository": "http://github.com/vanillajs2/csv/",
   "main": "src/csv.js",
   "scripts": {
     "test": "npx tape ./**/*..spec.js" 
