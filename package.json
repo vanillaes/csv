@@ -19,7 +19,7 @@
   "main": "src/csv.js",
   "type": "module",
   "scripts": {
-    "test": "npx tape ./**/*..spec.js",
+    "test": "node --experimental-modules src/csv.spec.js",
     "lint": "semistandard"
   },
   "dependencies": {},
