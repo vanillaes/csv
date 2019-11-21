@@ -4,23 +4,26 @@
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "license": "MIT",
   "contributors": [
-  	{
-    	"name": "Evan Plaice",
-    	"email": "evan.plaice@gmail.com",
-    	"url": "http://evanplaice.com"
-  	},
     {
-    	"name": "Colton Ehrman",
-    	"email": "coltonje95@gmail.com",
-    	"url": "http://coltonehrman.com"
-  	}
+      "name": "Evan Plaice",
+      "email": "evan.plaice@gmail.com",
+      "url": "http://evanplaice.com"
+    },
+    {
+      "name": "Colton Ehrman",
+      "email": "coltonje95@gmail.com",
+      "url": "http://coltonehrman.com"
+    }
   ],
   "repository": "http://github.com/vanillaes/csv-es/",
   "main": "src/csv.js",
   "type": "module",
   "scripts": {
-    "test": "npx tape ./**/*..spec.js" 
+    "test": "npx tape ./**/*..spec.js",
+    "lint": "semistandard"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "semistandard": "^14.2.0"
+  }
 }
