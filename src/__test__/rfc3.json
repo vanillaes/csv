@@ -1,0 +1,33 @@
+{
+  "description": [
+    "There maybe an optional header line appearing as the first line",
+    "of the file with the same format as normal record lines. This",
+    "header will contain names corresponding to the fields in the file",
+    "and should contain the same number of fields as the records in",
+    "the rest of the file (the presence or absence of the header line",
+    "should be indicated via the optional 'header' parameter of this",
+    "MIME type)."
+  ],
+  "csv": [
+    "field_name,field_name,field_name",
+    "aaa,bbb,ccc",
+    "zzz,yyy,xxx"
+  ],
+  "json": [
+    [
+      "field_name",
+      "field_name",
+      "field_name"
+    ],
+    [
+      "aaa",
+      "bbb",
+      "ccc"
+    ],
+    [
+      "zzz",
+      "yyy",
+      "xxx"
+    ]
+  ]
+}

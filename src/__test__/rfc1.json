@@ -1,0 +1,24 @@
+{
+  "description": [
+    "Each record is located on a separate line, delimited by a line break (CRLF)."
+  ],
+  "csv": [
+    "aaa,bbb,ccc",
+    "zzz,yyy,xxx",
+    ""
+  ],
+  "json": [
+    [
+      "aaa",
+      "bbb",
+      "ccc"
+    ],
+    [
+      "zzz",
+      "yyy",
+      "xxx"
+    ]
+  ]
+}
+
+

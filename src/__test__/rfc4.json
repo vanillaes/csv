@@ -1,0 +1,19 @@
+{
+  "description": [
+    "Within the header and each record, there may be one or more",
+    "fields, separated by commas. Each line should contain the same",
+    "number of fields throughout the file. Spaces are considered part",
+    "of a field and should not be ignored. The last field in the",
+    "record must not be followed by a comma."
+  ],
+  "csv": [
+    "aaa , bbb, c  cc"
+  ],
+  "json": [
+    [
+      "aaa ",
+      " bbb",
+      " c  cc"
+    ]
+  ]
+}

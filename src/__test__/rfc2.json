@@ -1,0 +1,21 @@
+{
+  "description": [
+    "The last record in the file may or may not have an ending line break."
+  ],
+  "csv": [
+    "aaa,bbb,ccc",
+    "zzz,yyy,xxx"
+  ],
+  "json": [
+    [
+      "aaa",
+      "bbb",
+      "ccc"
+    ],
+    [
+      "zzz",
+      "yyy",
+      "xxx"
+    ]
+  ]
+}

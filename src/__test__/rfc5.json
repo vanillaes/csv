@@ -1,0 +1,24 @@
+{
+  "description": [
+    "Each field may or may not be enclosed in double quotes (however",
+    "some programs, such as Microsoft Excel, do not use double quotes",
+    "at all). If fields are not enclosed with double quotes, then",
+    "double quotes may not appear inside the fields."
+  ],
+  "csv": [
+    "\"aaa\",\"bbb\",\"ccc\"",
+    "zzz,yyy,xxx"
+  ],
+  "json": [
+    [
+      "aaa",
+      "bbb",
+      "ccc"
+    ],
+    [
+      "zzz",
+      "yyy",
+      "xxx"
+    ]
+  ]
+}

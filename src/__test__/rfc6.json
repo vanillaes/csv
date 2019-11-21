@@ -1,0 +1,16 @@
+{
+  "description": [
+    "Fields containing line breaks (CRLF), double quotes, and commas",
+    "should be enclosed in double-quotes."
+  ],
+  "csv": [
+    "\"a\r\naa\",\"bbb\",\"c,cc\""
+  ],
+  "json": [
+    [
+      "a\r\naa",
+      "bbb",
+      "c,cc"
+    ]
+  ]
+}
