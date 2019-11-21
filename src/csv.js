@@ -1,20 +1,13 @@
+export default class CSV {
+  static parse (input, options = {}, reviver) {
+    // TODO: Add input checking
 
-const CSV;
+    // TODO: Add parser
+  }
 
-CSV.parse = (input, hook, objects) => {
-  // TODO: Add input checking
+  static stringify (input, options = {}, replacer) {
+    // TODO: Add input checking
 
-  // TODO: Array-specific stuff
-
-  // TODO: Object-specific stuff
+    // TODO: Add formatter
+  }
 }
-
-CSV.stringify = (input, hook, objects) => {
-  // TODO: Add input checking
-
-  // TODO: Array-specific stuff
-
-  // TODO: Object-specific stuff
-}
-
-export default CSV
