@@ -17,6 +17,7 @@
   ],
   "repository": "http://github.com/vanillaes/csv-es/",
   "main": "src/csv.js",
+  "type": "module",
   "scripts": {
     "test": "npx tape ./**/*..spec.js" 
   },
