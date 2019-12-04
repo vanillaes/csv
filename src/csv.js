@@ -22,17 +22,28 @@ export default class CSV {
               state = 1;
               break;
             case match === ',':
-              valueEnd(ctx);
+              this.valueEnd(ctx);
               break;
             case /^(\r\n|\n|\r)$/.test(match):
-              valueEnd(ctx);
-              entryEnd(ctx);
+              this.valueEnd(ctx);
+              this.entryEnd(ctx);
               break;
             default:
               ctx.value += match;
               state = 3;
               break;
           }
+          break;
+        case 1: // delimited input
+            switch(true) {
+              case match === '"':
+                state = 0;  
+                break;
+              default:
+                state = 1;
+                ctx.value += match;
+                break;
+            }
           break;
         case 3: // un-delimited input
           switch(true) {
