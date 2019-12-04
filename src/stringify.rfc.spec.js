@@ -54,11 +54,11 @@ test('RFC Rule #6 - Fields containing line breaks, double-quotes, and commas sho
   t.end();
 });
 
-// test('RFC Rule #7 - If double-quotes are used to enclose fields, then a double-quote appering inside a field must be escaped by a preceding it with another double-quote', (t) => {
-//   const expect = rfc7.json;
-//   const result = CSV.parse(rfc7.csv.join('\n'));
+test('RFC Rule #7 - If double-quotes are used to enclose fields, then a double-quote appering inside a field must be escaped by a preceding it with another double-quote', (t) => {
+  const expect = rfc7.csv.join('\n');
+  const result = CSV.stringify(rfc7.json, { eof: false });
 
-//   t.deepEqual(result, expect);
+  t.deepEqual(result, expect);
 
-//   t.end();
-// });
+  t.end();
+});

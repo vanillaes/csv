@@ -106,6 +106,7 @@ export default class CSV {
     input.forEach((row, rIdx) => {
       let entry = '';
       row.forEach((col, cIdx) => {
+        col = col.replace('"', '""');
         entry += /"|,|\r\n|\n|\r/.test(col)
           ? `"${col}"`
           : col;
@@ -121,10 +122,7 @@ export default class CSV {
       } else {
         output += `${entry}\n`;
       }
-      
     })
-
-    
     return output;
   }
 

@@ -5,7 +5,7 @@
     "another double quote."
   ],
   "csv": [
-    "\"aaa\",\"b\"\"bb\",\"ccc\""
+    "aaa,\"b\"\"bb\",ccc"
   ],
   "json": [
     [
