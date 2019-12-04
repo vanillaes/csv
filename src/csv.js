@@ -97,7 +97,20 @@ export default class CSV {
   static stringify (input, options = {}, replacer = null) {
     // TODO: Add input checking
 
-    // TODO: Add formatter
+    let output = "";
+    input.forEach(row => {
+      let entry = '';
+      row.forEach((col, idx) => {
+        entry += /"|,|\r\n|\n|\r/.test(col)
+          ? `"${col}"`
+          : col;
+          if (idx !== row.length - 1) {
+            entry += ',';
+          }
+      });
+      output += `${entry}\n`;
+    })
+    return output;
   }
 
   static valueEnd (ctx) {
