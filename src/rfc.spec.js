@@ -1,8 +1,7 @@
-import  test from 'tape';
+import test from 'tape';
 import CSV from './csv.js';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-
 const rfc1 = require('./__test__/rfc1.json');
 const rfc2 = require('./__test__/rfc2.json');
 const rfc3 = require('./__test__/rfc3.json');

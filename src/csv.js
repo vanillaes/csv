@@ -12,12 +12,12 @@ export default class CSV {
 
     const lexer = RegExp(/"|,|\r\n|\n|\r|[^",\r\n]+/y);
 
-    while(match = lexer.exec(input)) {
+    while ((match = lexer.exec(input)) !== null) {
       match = match[0];
 
       switch (state) {
         case 0: // start of entry
-          switch(true) {
+          switch (true) {
             case match === '"':
               state = 3;
               break;
@@ -37,7 +37,7 @@ export default class CSV {
           }
           break;
         case 2: // un-delimited input
-          switch(true) {
+          switch (true) {
             case match === ',':
               state = 0;
               this.valueEnd(ctx);
@@ -53,7 +53,7 @@ export default class CSV {
           }
           break;
         case 3: // delimited input
-          switch(true) {
+          switch (true) {
             case match === '"':
               state = 4;
               break;
@@ -64,13 +64,13 @@ export default class CSV {
           }
           break;
         case 4: // escaped or closing delimiter
-          switch(true) {
+          switch (true) {
             case match === '"':
               state = 3;
               ctx.value += match;
               break;
             case match === ',':
-              state = 0;  
+              state = 0;
               this.valueEnd(ctx);
               break;
             case /^(\r\n|\n|\r)$/.test(match):
@@ -79,7 +79,7 @@ export default class CSV {
               this.entryEnd(ctx);
               break;
             default:
-                throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
+              throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
           }
           break;
       }
@@ -102,17 +102,14 @@ export default class CSV {
 
   static valueEnd (ctx) {
     ctx.entry.push(ctx.value);
-    
     ctx.value = '';
     ctx.col++;
   }
 
   static entryEnd (ctx) {
     ctx.output.push(ctx.entry);
-
     ctx.entry = [];
     ctx.row++;
     ctx.col = 1;
   }
-
 }
