@@ -5,6 +5,7 @@ const require = createRequire(import.meta.url);
 
 const rfc1 = require('./__test__/rfc1.json');
 const rfc2 = require('./__test__/rfc2.json')
+const rfc3 = require('./__test__/rfc3.json')
 
 test('RFC Rule #1 - One entry per line, each line ends with a newline', (t) => {
   const expect = CSV.parse(rfc1.csv.join('\n'));
@@ -24,15 +25,14 @@ test('RFC Rule #2 - Trailing newline at the end of the file ommitted', (t) => {
   t.end();
 });
 
-// // TODO: Implement this
-// test('RFC Rule #3 - First row contains header data', (t) => {
-//   const expect = null;
-//   const result = null;
+test('RFC Rule #3 - First row contains header data', (t) => {
+  const expect = CSV.parse(rfc3.csv.join('\n'));
+  const result = rfc3.json;
 
-//   t.deepEqual(result, expect);
+  t.deepEqual(result, expect);
 
-//   t.end();
-// });
+  t.end();
+});
 
 // // TODO: Implement this
 // test('RFC Rule #4 - Spaces are considered data and entries should not contain a trailing comma', (t) => {
