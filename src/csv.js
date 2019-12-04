@@ -100,7 +100,6 @@ export default class CSV {
     options.eof = options.eof !== undefined
       ? options.eof
       : true;
-    console.log(options.eof);
 
     let output = '';
     input.forEach((row, rIdx) => {
