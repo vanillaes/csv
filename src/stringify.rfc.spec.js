@@ -28,14 +28,14 @@ test('RFC Rule #2 - Trailing newline at the end of the file omitted', (t) => {
   t.end();
 });
 
-// test('RFC Rule #3 - First row contains header data', (t) => {
-//   const expect = rfc3.json;
-//   const result = CSV.parse(rfc3.csv.join('\n'));
+test('RFC Rule #3 - First row contains header data', (t) => {
+  const expect = rfc3.csv.join('\n');
+  const result = CSV.stringify(rfc3.json, { eof: false });
 
-//   t.deepEqual(result, expect);
+  t.deepEqual(result, expect);
 
-//   t.end();
-// });
+  t.end();
+});
 
 // test('RFC Rule #4 - Spaces are considered data and entries should not contain a trailing comma', (t) => {
 //   const expect = rfc4.json;
