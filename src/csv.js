@@ -52,6 +52,12 @@ export default class CSV {
           break;
       }
     }
+
+    if (ctx.entry.length !== 0) {
+      this.valueEnd(ctx);
+      this.entryEnd(ctx);
+    }
+
     return ctx.output;
   }
 
