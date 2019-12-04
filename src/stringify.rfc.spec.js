@@ -37,14 +37,13 @@ test('RFC Rule #3 - First row contains header data', (t) => {
   t.end();
 });
 
-// test('RFC Rule #4 - Spaces are considered data and entries should not contain a trailing comma', (t) => {
-//   const expect = rfc4.json;
-//   const result = CSV.parse(rfc4.csv.join('\n'));
+test('RFC Rule #4 - Spaces are considered data and entries should not contain a trailing comma', (t) => {
+  const expect = rfc4.csv.join('\n');
+  const result = CSV.stringify(rfc4.json, { eof: false });
+  t.deepEqual(result, expect);
 
-//   t.deepEqual(result, expect);
-
-//   t.end();
-// });
+  t.end();
+});
 
 // test('RFC Rule #5 - Lines may or may not be delimited by double-quotes', (t) => {
 //   const expect = rfc5.json;
