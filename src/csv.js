@@ -97,19 +97,34 @@ export default class CSV {
   static stringify (input, options = {}, replacer = null) {
     // TODO: Add input checking
 
+    options.eof = options.eof !== undefined
+      ? options.eof
+      : true;
+    console.log(options.eof);
+
     let output = "";
-    input.forEach(row => {
+    input.forEach((row, rIdx) => {
       let entry = '';
-      row.forEach((col, idx) => {
+      row.forEach((col, cIdx) => {
         entry += /"|,|\r\n|\n|\r/.test(col)
           ? `"${col}"`
           : col;
-          if (idx !== row.length - 1) {
+          if (cIdx !== row.length - 1) {
             entry += ',';
           }
       });
-      output += `${entry}\n`;
+      if (options.eof === false) {
+        output += entry;
+        if (rIdx !== input.length - 1) {
+          output += `\n`;
+        }
+      } else {
+        output += `${entry}\n`;
+      }
+      
     })
+
+    
     return output;
   }
 

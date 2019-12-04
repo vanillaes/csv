@@ -19,7 +19,7 @@ test('RFC Rule #1 - One entry per line, each line ends with a newline', (t) => {
   t.end();
 });
 
-test('RFC Rule #2 - Trailing newline at the end of the file ommitted', (t) => {
+test('RFC Rule #2 - Trailing newline at the end of the file omitted', (t) => {
   const expect = rfc2.json;
   const result = CSV.parse(rfc2.csv.join('\n'));
 
