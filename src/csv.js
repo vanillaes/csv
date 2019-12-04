@@ -19,12 +19,14 @@ export default class CSV {
         case 0: // start of entry
           switch(true) {
             case match === '"':
-              state = 1;
+              state = 3;
               break;
             case match === ',':
+              state = 0;
               this.valueEnd(ctx);
               break;
             case /^(\r\n|\n|\r)$/.test(match):
+              state = 0;
               this.valueEnd(ctx);
               this.entryEnd(ctx);
               break;
@@ -33,22 +35,6 @@ export default class CSV {
               state = 2;
               break;
           }
-          break;
-        case 1: // delimited input
-          var prev = ctx.value[ctx.value.length - 1];
-          switch(true) {
-            case match === '"' && prev === '"':
-              state = 1;
-              ctx.value += match;
-              break;
-            case match === '"':
-              state = 0;  
-              break;
-            default:
-              state = 1;
-              ctx.value += match;
-              break;
-            }
           break;
         case 2: // un-delimited input
           switch(true) {
@@ -66,9 +52,40 @@ export default class CSV {
               throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
           }
           break;
+        case 3: // delimited input
+          switch(true) {
+            case match === '"':
+              state = 4;
+              break;
+            default:
+              state = 3;
+              ctx.value += match;
+              break;
+          }
+          break;
+        case 4: // escaped or closing delimiter
+          switch(true) {
+            case match === '"':
+              state = 3;
+              ctx.value += match;
+              break;
+            case match === ',':
+              state = 0;  
+              this.valueEnd(ctx);
+              break;
+            case /^(\r\n|\n|\r)$/.test(match):
+              state = 0;
+              this.valueEnd(ctx);
+              this.entryEnd(ctx);
+              break;
+            default:
+                throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
+          }
+          break;
       }
     }
 
+    // flush the last value
     if (ctx.entry.length !== 0) {
       this.valueEnd(ctx);
       this.entryEnd(ctx);
