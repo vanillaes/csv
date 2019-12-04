@@ -19,14 +19,14 @@
   "main": "src/csv.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-modules src/csv.spec.js",
+    "test": "tape-es",
     "lint": "semistandard"
   },
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "semistandard": "^14.2.0",
-    "tape": "^4.11.0"
+    "tape-es": "^1.1.1"
   },
   "semistandard": {
     "parser": "babel-eslint"
