@@ -45,15 +45,6 @@ test('RFC Rule #4 - Spaces are considered data and entries should not contain a 
   t.end();
 });
 
-// test('RFC Rule #5 - Lines may or may not be delimited by double-quotes', (t) => {
-//   const expect = rfc5.json;
-//   const result = CSV.parse(rfc5.csv.join('\n'));
-
-//   t.deepEqual(result, expect);
-
-//   t.end();
-// });
-
 // test('RFC Rule #6 - Fields containing line breaks, double-quotes, and commas should be enclosed in double-quotes', (t) => {
 //   const expect = rfc6.json;
 //   const result = CSV.parse(rfc6.csv.join('\n'));
