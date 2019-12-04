@@ -6,7 +6,6 @@ const rfc1 = require('./__test__/rfc1.json');
 const rfc2 = require('./__test__/rfc2.json');
 const rfc3 = require('./__test__/rfc3.json');
 const rfc4 = require('./__test__/rfc4.json');
-const rfc5 = require('./__test__/rfc5.json');
 const rfc6 = require('./__test__/rfc6.json');
 const rfc7 = require('./__test__/rfc7.json');
 

@@ -102,7 +102,7 @@ export default class CSV {
       : true;
     console.log(options.eof);
 
-    let output = "";
+    let output = '';
     input.forEach((row, rIdx) => {
       let entry = '';
       row.forEach((col, cIdx) => {
@@ -110,19 +110,19 @@ export default class CSV {
         entry += /"|,|\r\n|\n|\r/.test(col)
           ? `"${col}"`
           : col;
-          if (cIdx !== row.length - 1) {
-            entry += ',';
-          }
+        if (cIdx !== row.length - 1) {
+          entry += ',';
+        }
       });
       if (options.eof === false) {
         output += entry;
         if (rIdx !== input.length - 1) {
-          output += `\n`;
+          output += '\n';
         }
       } else {
         output += `${entry}\n`;
       }
-    })
+    });
     return output;
   }
 
