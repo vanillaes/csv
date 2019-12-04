@@ -8,6 +8,7 @@ const rfc2 = require('./__test__/rfc2.json');
 const rfc3 = require('./__test__/rfc3.json');
 const rfc4 = require('./__test__/rfc4.json');
 const rfc5 = require('./__test__/rfc5.json');
+const rfc6 = require('./__test__/rfc6.json');
 
 test('RFC Rule #1 - One entry per line, each line ends with a newline', (t) => {
   const expect = CSV.parse(rfc1.csv.join('\n'));
@@ -54,15 +55,14 @@ test('RFC Rule #5 - Lines may or may not be delimited by double-quotes', (t) => 
   t.end();
 });
 
-// // TODO: Implement this
-// test('RFC Rule #6 - Fields containing line breaks, double-quotes, and commas should be enclosed in double-quotes', (t) => {
-//   const expect = null;
-//   const result = null;
+test('RFC Rule #6 - Fields containing line breaks, double-quotes, and commas should be enclosed in double-quotes', (t) => {
+  const expect = CSV.parse(rfc6.csv.join('\n'));
+  const result = rfc6.json;
 
-//   t.deepEqual(result, expect);
+  t.deepEqual(result, expect);
 
-//   t.end();
-// });
+  t.end();
+});
 
 // // TODO: Implement this
 // test('RFC Rule #7 - If double-quotes are used to enclose fields, then a double-quote appering inside a field must be escaped by a preceding it with another double-quote', (t) => {

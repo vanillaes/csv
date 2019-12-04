@@ -30,22 +30,27 @@ export default class CSV {
               break;
             default:
               ctx.value += match;
-              state = 3;
+              state = 2;
               break;
           }
           break;
         case 1: // delimited input
-            switch(true) {
-              case match === '"':
-                state = 0;  
-                break;
-              default:
-                state = 1;
-                ctx.value += match;
-                break;
+          var prev = ctx.value[ctx.value.length - 1];
+          switch(true) {
+            case match === '"' && prev === '"':
+              state = 1;
+              ctx.value += match;
+              break;
+            case match === '"':
+              state = 0;  
+              break;
+            default:
+              state = 1;
+              ctx.value += match;
+              break;
             }
           break;
-        case 3: // un-delimited input
+        case 2: // un-delimited input
           switch(true) {
             case match === ',':
               state = 0;
@@ -58,7 +63,7 @@ export default class CSV {
               break;
             default:
               state = 4;
-              throw Error('CSVError: Illegal state [row:' + ctx.row + ']');
+              throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
           }
           break;
       }
