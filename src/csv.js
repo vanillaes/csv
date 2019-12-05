@@ -13,6 +13,7 @@ export default class CSV {
    */
   static parse (csv, options = {}, reviver = v => v) {
     // TODO: Add input checking
+    let matches = [];
     let match = '';
     let state = 0;
     const ctx = Object.create(null);
@@ -24,8 +25,8 @@ export default class CSV {
 
     const lexer = RegExp(/"|,|\r\n|\n|\r|[^",\r\n]+/y);
 
-    while ((match = lexer.exec(csv)) !== null) {
-      match = match[0];
+    while ((matches = lexer.exec(csv)) !== null) {
+      match = matches[0];
 
       switch (state) {
         case 0: // start of entry
