@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "target": "es2017"
+  },
+  "include": [
+    "../index.js"
+  ]
+}
