@@ -1,5 +1,17 @@
 export default class CSV {
-  static parse (input, options = {}, reviver = v => v) {
+  /**
+   * Takes a string of CSV data and converts it to a 2 dimensional array
+   *
+   * options
+   * - typed - type coercion [false]
+   *
+   * @static
+   * @param {*} csv the CSV string to parse
+   * @param {*} [options] an object containing the options
+   * @param {*} [reviver] a custom function to modify the values
+   * @returns a 2 dimensional array of `[entries][values]`
+   */
+  static parse (csv, options = {}, reviver = v => v) {
     // TODO: Add input checking
     let match = '';
     let state = 0;
@@ -12,7 +24,7 @@ export default class CSV {
 
     const lexer = RegExp(/"|,|\r\n|\n|\r|[^",\r\n]+/y);
 
-    while ((match = lexer.exec(input)) !== null) {
+    while ((match = lexer.exec(csv)) !== null) {
       match = match[0];
 
       switch (state) {
@@ -94,7 +106,19 @@ export default class CSV {
     return ctx.output;
   }
 
-  static stringify (input, options = {}, replacer = null) {
+  /**
+   * Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
+   *
+   * options
+   * - eof - add a trailing newline at the end [true]
+   *
+   * @static
+   * @param {*} array the input array to stringify
+   * @param {*} [options] an object containing the options
+   * @param {*} [replacer] a custom function to modify the values
+   * @returns the CSV string
+   */
+  static stringify (array, options = {}, replacer = v => v) {
     // TODO: Add input checking
 
     options.eof = options.eof !== undefined
@@ -102,7 +126,7 @@ export default class CSV {
       : true;
 
     let output = '';
-    input.forEach((row, rIdx) => {
+    array.forEach((row, rIdx) => {
       let entry = '';
       row.forEach((col, cIdx) => {
         col = col.replace('"', '""');
@@ -115,7 +139,7 @@ export default class CSV {
       });
       if (options.eof === false) {
         output += entry;
-        if (rIdx !== input.length - 1) {
+        if (rIdx !== array.length - 1) {
           output += '\n';
         }
       } else {
@@ -125,12 +149,14 @@ export default class CSV {
     return output;
   }
 
+  /** @private */
   static valueEnd (ctx) {
     ctx.entry.push(ctx.value);
     ctx.value = '';
     ctx.col++;
   }
 
+  /** @private */
   static entryEnd (ctx) {
     ctx.output.push(ctx.entry);
     ctx.entry = [];
