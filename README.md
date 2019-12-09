@@ -1,7 +1,6 @@
 [![GitHub Releases](https://img.shields.io/github/release/vanillaes/csv-es.svg)](https://github.com/vanillaes/csv-es/releases)
-[![NPM Releases](https://img.shields.io/npm/v/csv-es.svg)](https://www.npmjs.com/package/csv-es)
-[![David](https://img.shields.io/david/dev/vanillaes/csv-es.svg)](https://david-dm.org/vanillaes/csv-es?type=dev)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillaes/csv-es/master/LICENSE)
+[![NPM Release](https://img.shields.io/npm/v/csv-es.svg)](https://www.npmjs.com/package/csv-es)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillaes/csv-es/master/LICENSE)
 [![Latest Status](https://github.com/vanillaes/csv-es/workflows/Latest/badge.svg)](https://github.com/vanillaes/csv-es/actions)
 [![Release Status](https://github.com/vanillaes/csv-es/workflows/Release/badge.svg)](https://github.com/vanillaes/csv-es/actions)
 
