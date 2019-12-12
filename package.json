@@ -25,6 +25,9 @@
   "repository": "http://github.com/vanillaes/csv-es/",
   "main": "src/csv.js",
   "type": "module",
+  "engines": {
+    "node": ">=13.2"
+  },
   "scripts": {
     "test": "tape-es",
     "test:watch": "tape-watch-es",
