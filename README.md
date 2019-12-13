@@ -47,8 +47,8 @@ Takes a string of CSV data and converts it to a 2 dimensional array.
 
 - csv - the CSV string to parse
 - options
-  - typed - type coercion (default false)
-- reviver - a custom function to modify the values
+  - *typed - type coercion (default false)* **NOT IMPLEMENTED**
+- *reviver - a custom function to modify the values* **NOT IMPLEMENTED** 
 
 ## CSV.stringify()
 
@@ -61,7 +61,7 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
 - array - the input array to stringify
 - options
   - eof - add a trailing newline at the end (default true)
-- replacer - a custom function to modify the values
+- *replacer - a custom function to modify the values* **NOT IMPLEMENTED**
 
 ## CommonJS
 
