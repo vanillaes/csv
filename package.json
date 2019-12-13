@@ -23,8 +23,10 @@
     }
   ],
   "repository": "http://github.com/vanillaes/csv-es/",
-  "main": "src/csv.js",
+  "main": "index.js",
+  "module": "dist/csv-es.esm.js",
   "type": "module",
+  "types": "index.d.ts",
   "engines": {
     "node": ">=13.2"
   },
