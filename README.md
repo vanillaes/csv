@@ -68,7 +68,7 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
 A CommonJS bundle is included for backward compatible with `node <= 13.2`
 
 ```javascript
-const CSV = require('csv-es/dist/csv-es.cjs');
+const CSV = require('csv-es/index.cjs');
 ```
 
 ## Typings
