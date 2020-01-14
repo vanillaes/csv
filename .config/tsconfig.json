@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "noEmit": false,
-    "declaration": true,
+    "target": "ESNext",
     "allowJs": true,
     "checkJs": true,
+    "declaration": true,
     "emitDeclarationOnly": true
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "../index.js"
   ]
