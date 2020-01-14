@@ -9,10 +9,10 @@
 A fast, simple, easy-to-use CSV parser
 
 - RFC Compliant
-- Battle Tested
 - ECMAScript Module
 - CommonJS Bundle Included
 - Typescript Compatible
+- Tiny Footprint (1.4K minified)
 
 This package combines the best of [jQuery-CSV][] and Douglas Crockford's [JSON-js][].
 
