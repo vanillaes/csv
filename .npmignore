@@ -1,3 +1,7 @@
+.config/
 .github/
 .vscode/
+src/__test__/
+CONTRIBUTING.md
+*.spec.js
 *.tgz
