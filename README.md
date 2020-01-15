@@ -97,13 +97,12 @@ console.log(stringified);
 > "zzz,yyy,xxx"
 ```
 
-### Stringify
 
 ## CommonJS
 
 A CommonJS bundle is included for backward compatible with `node <= 13.2`
 
-### Parse()
+### CSV.parse()
 
 ```javascript
 const CSV = require('csv-es/index.cjs');
@@ -111,7 +110,7 @@ const csv = // the csv string
 const data = CSV.parse(csv);
 ```
 
-### Stringify
+### CSV.stringify()
 
 ```javascript
 const CSV = require('csv-es/index.cjs');
