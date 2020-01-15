@@ -4,4 +4,5 @@
 src/__test__/
 CONTRIBUTING.md
 *.spec.js
+*.spec.cjs
 *.tgz
