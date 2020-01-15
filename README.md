@@ -50,6 +50,24 @@ Takes a string of CSV data and converts it to a 2 dimensional array.
   - *typed - type coercion (default false)* **NOT IMPLEMENTED**
 - *reviver - a custom function to modify the values* **NOT IMPLEMENTED** 
 
+### Example
+
+```javascript
+import CSV from '/path/to/csv/index.js';
+const csv = `
+"header1,header2,header3"
+"aaa,bbb,ccc"
+"zzz,yyy,xxx"
+`;
+const parsed = CSV.parse(csv)
+console.log(parsed);
+> [
+>   [ "header1", "header2", "header3" ],
+>   [ "aaa", "bbb", "ccc" ],
+>   [ "zzz", "yyy", "xxx" ]
+> ]
+```
+
 ## CSV.stringify()
 
 Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
@@ -63,12 +81,42 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
   - eof - add a trailing newline at the end (default true)
 - *replacer - a custom function to modify the values* **NOT IMPLEMENTED**
 
+### Example
+
+```javascript
+import CSV from '/path/to/csv/index.js';
+const data = [
+  [ "header1", "header2", "header3" ],
+  [ "aaa", "bbb", "ccc" ],
+  [ "zzz", "yyy", "xxx" ]
+];
+const stringified = CSV.stringify(data)
+console.log(stringified);
+> "header1,header2,header3"
+> "aaa,bbb,ccc"
+> "zzz,yyy,xxx"
+```
+
+### Stringify
+
 ## CommonJS
 
 A CommonJS bundle is included for backward compatible with `node <= 13.2`
 
+### Parse()
+
 ```javascript
 const CSV = require('csv-es/index.cjs');
+const csv = // the csv string
+const data = CSV.parse(csv);
+```
+
+### Stringify
+
+```javascript
+const CSV = require('csv-es/index.cjs');
+const data = // the a 2-dimensional array
+const csv = CSV.stringify(data);
 ```
 
 ## Typings
