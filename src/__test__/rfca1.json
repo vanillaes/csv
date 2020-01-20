@@ -1,0 +1,15 @@
+{
+  "description": [
+    "Entries can contain null values"
+  ],
+  "csv": [
+    "aaa,,ccc"
+  ],
+  "json": [
+    [
+      "aaa",
+      "",
+      "ccc"
+    ]
+  ]
+}
