@@ -1,0 +1,15 @@
+{
+  "description": [
+    "The last entry can contain an un-delimited null value"
+  ],
+  "csv": [
+    "\"aaa\",\"bbb\","
+  ],
+  "json": [
+    [
+      "aaa",
+      "bbb",
+      ""
+    ]    
+  ]
+}
