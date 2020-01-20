@@ -1,0 +1,15 @@
+{
+  "description": [
+    "A quoted field can contain a null value"
+  ],
+  "csv": [
+    "\"aaa\",\"\",\"ccc\""
+  ],
+  "json": [
+    [
+      "aaa",
+      "",
+      "ccc"
+    ]
+  ]
+}
