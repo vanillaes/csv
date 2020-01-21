@@ -1,0 +1,22 @@
+{
+  "description": [
+    "Replacer should append each value with a 1"
+  ],
+  "csv": [
+    "aaa1,bbb1,ccc1",
+    "zzz1,yyy1,xxx1",
+    ""
+  ],
+  "json": [
+    [
+      "aaa",
+      "bbb",
+      "ccc"
+    ],
+    [
+      "zzz",
+      "yyy",
+      "xxx"
+    ]
+  ]
+}

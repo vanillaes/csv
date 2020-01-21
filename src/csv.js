@@ -7,9 +7,9 @@ export default class CSV {
    *
    * @static
    * @param {string} csv the CSV string to parse
-   * @param {object} [options] an object containing the options
-   * @param {function} [reviver] a custom function to modify the values
-   * @returns a 2 dimensional array of `[entries][values]`
+   * @param {Object} [options] an object containing the options
+   * @param {Function} [reviver] a custom function to modify the values
+   * @returns {Array} a 2 dimensional array of `[entries][values]`
    */
   static parse (csv, options, reviver = v => v) {
     // TODO: Add input checking
@@ -115,40 +115,46 @@ export default class CSV {
    * - eof - add a trailing newline at the end [true]
    *
    * @static
-   * @param {*} array the input array to stringify
-   * @param {*} [options] an object containing the options
-   * @param {*} [replacer] a custom function to modify the values
-   * @returns the CSV string
+   * @param {Array} array the input array to stringify
+   * @param {Object} [options] an object containing the options
+   * @param {Function} [replacer] a custom function to modify the values
+   * @returns {string} the CSV string
    */
   static stringify (array, options = {}, replacer = v => v) {
     // TODO: Add input checking
 
-    options.eof = options.eof !== undefined
-      ? options.eof
-      : true;
+    const ctx = Object.create(null);
+    ctx.options = options;
+    ctx.options.eof = ctx.options.eof !== undefined ? ctx.options.eof : true;
+    ctx.row = 1;
+    ctx.col = 1;
+    ctx.output = '';
 
-    let output = '';
     array.forEach((row, rIdx) => {
       let entry = '';
+      ctx.col = 1;
       row.forEach((col, cIdx) => {
         col = col.replace('"', '""');
-        entry += /"|,|\r\n|\n|\r/.test(col)
-          ? `"${col}"`
-          : col;
+        col = /"|,|\r\n|\n|\r/.test(col) ? `"${col}"` : col;
+        entry += replacer(col, ctx.row, ctx.col);
         if (cIdx !== row.length - 1) {
           entry += ',';
         }
+        ctx.col++;
       });
-      if (options.eof === false) {
-        output += entry;
-        if (rIdx !== array.length - 1) {
-          output += '\n';
-        }
-      } else {
-        output += `${entry}\n`;
+      switch (true) {
+        case ctx.options.eof:
+        case !ctx.options.eof && rIdx !== array.length - 1:
+          ctx.output += `${entry}\n`;
+          break;
+        default:
+          ctx.output += `${entry}`;
+          break;
       }
+      ctx.row++;
     });
-    return output;
+
+    return ctx.output;
   }
 
   /** @private */

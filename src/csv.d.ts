@@ -7,11 +7,11 @@ export default class CSV {
      *
      * @static
      * @param {string} csv the CSV string to parse
-     * @param {object} [options] an object containing the options
-     * @param {function} [reviver] a custom function to modify the values
-     * @returns a 2 dimensional array of `[entries][values]`
+     * @param {Object} [options] an object containing the options
+     * @param {Function} [reviver] a custom function to modify the values
+     * @returns {Array} a 2 dimensional array of `[entries][values]`
      */
-    static parse(csv: string, options?: any, reviver?: Function): any;
+    static parse(csv: string, options?: any, reviver?: Function): any[];
     /**
      * Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
      *
@@ -19,12 +19,12 @@ export default class CSV {
      * - eof - add a trailing newline at the end [true]
      *
      * @static
-     * @param {*} array the input array to stringify
-     * @param {*} [options] an object containing the options
-     * @param {*} [replacer] a custom function to modify the values
-     * @returns the CSV string
+     * @param {Array} array the input array to stringify
+     * @param {Object} [options] an object containing the options
+     * @param {Function} [replacer] a custom function to modify the values
+     * @returns {string} the CSV string
      */
-    static stringify(array: any, options?: any, replacer?: any): string;
+    static stringify(array: any[], options?: any, replacer?: Function): string;
     /** @private */
     static valueEnd(ctx: any): void;
     /** @private */

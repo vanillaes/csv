@@ -48,7 +48,7 @@ Takes a string of CSV data and converts it to a 2 dimensional array.
 - csv - the CSV string to parse
 - options
   - typed - infer types (default `false`)
-- reviver - a custom function to modify the output (default `value => value`)
+- reviver - a custom function to modify the output (default `(value) => value`)
 
 ### Example
 
@@ -79,7 +79,7 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
 - array - the input array to stringify
 - options
   - eof - add a trailing newline at the end (default `true`)
-- *replacer - a custom function to modify the values* **NOT IMPLEMENTED**
+- replacer - a custom function to modify the values (default `(value) => value`)
 
 ### Example
 
