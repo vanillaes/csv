@@ -4,7 +4,8 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const reviver1 = require('./__test__/reviver1.json');
 const reviver2 = require('./__test__/reviver2.json');
-const typed = require('./__test__/typed.json');
+const typed1 = require('./__test__/typed1.json');
+const typed2 = require('./__test__/typed2.json');
 
 test('Reviver #1 - The reviver should append 1 to each value', (t) => {
   const expect = reviver1.json;
@@ -24,9 +25,18 @@ test('Reviver #2 - The reviver should output the row:col values', (t) => {
   t.end();
 });
 
-test('Typed - When enabled the parser should infer the value types', (t) => {
-  const expect = typed.json;
-  const result = CSV.parse(typed.csv.join('\n'), { typed: true });
+test('Typed #1 - When set to true the parser should infer the value types', (t) => {
+  const expect = typed1.json;
+  const result = CSV.parse(typed1.csv.join('\n'), { typed: true });
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('Typed #2- When set to false the parser should not infer the value types', (t) => {
+  const expect = typed2.json;
+  const result = CSV.parse(typed2.csv.join('\n'), { typed: false });
 
   t.deepEqual(result, expect);
 

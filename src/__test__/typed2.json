@@ -1,6 +1,6 @@
 {
   "description": [
-    "When typed is set the parser should infer the value types"
+    "When typed is set to false the parser should infer the value types"
   ],
   "csv": [
     "1,2.3,ccc",
@@ -9,13 +9,13 @@
   ],
   "json": [
     [
-      1,
-      2.3,
+      "1",
+      "2.3",
       "ccc"
     ],
     [
-      true,
-      false,
+      "true",
+      "false",
       "xxx"
     ]
   ]
