@@ -14,9 +14,6 @@ class CSV {
    * @returns {Array} a 2 dimensional array of `[entries][values]`
    */
   static parse (csv, options, reviver = v => v) {
-    let matches = [];
-    let match = '';
-    let state = 0;
     const ctx = Object.create(null);
     ctx.options = options || {};
     ctx.reviver = reviver;
@@ -25,7 +22,12 @@ class CSV {
     ctx.output = [];
     ctx.col = 1;
     ctx.row = 1;
+
     const lexer = RegExp(/"|,|\r\n|\n|\r|[^",\r\n]+/y);
+
+    let matches = [];
+    let match = '';
+    let state = 0;
 
     while ((matches = lexer.exec(csv)) !== null) {
       match = matches[0];
