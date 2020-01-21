@@ -1,6 +1,6 @@
 {
   "description": [
-    "Reviver should appeand each value with a 1"
+    "Reviver should append each value with a 1"
   ],
   "csv": [
     "aaa,bbb,ccc",

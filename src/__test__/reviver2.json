@@ -1,0 +1,22 @@
+{
+  "description": [
+    "Reviver should output row/col values"
+  ],
+  "csv": [
+    "aaa,bbb,ccc",
+    "zzz,yyy,xxx",
+    ""
+  ],
+  "json": [
+    [
+      "1:1",
+      "1:2",
+      "1:3"
+    ],
+    [
+      "2:1",
+      "2:2",
+      "2:3"
+    ]
+  ]
+}
