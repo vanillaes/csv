@@ -8,23 +8,24 @@ class CSV {
    * - typed - type coercion [false]
    *
    * @static
-   * @param {*} csv the CSV string to parse
-   * @param {*} [options] an object containing the options
-   * @param {*} [reviver] a custom function to modify the values
+   * @param {string} csv the CSV string to parse
+   * @param {object} [options] an object containing the options
+   * @param {function} [reviver] a custom function to modify the values
    * @returns a 2 dimensional array of `[entries][values]`
    */
-  static parse (csv, options = {}, reviver = v => v) {
+  static parse (csv, options, reviver = v => v) {
     // TODO: Add input checking
     let matches = [];
     let match = '';
     let state = 0;
     const ctx = Object.create(null);
+    ctx.options = options || {};
+    ctx.reviver = reviver;
     ctx.value = '';
     ctx.entry = [];
     ctx.output = [];
     ctx.col = 1;
     ctx.row = 1;
-
     const lexer = RegExp(/"|,|\r\n|\n|\r|[^",\r\n]+/y);
 
     while ((matches = lexer.exec(csv)) !== null) {
@@ -154,7 +155,8 @@ class CSV {
 
   /** @private */
   static valueEnd (ctx) {
-    ctx.entry.push(ctx.value);
+    const value = ctx.options.typed ? this.inferType(ctx.value) : ctx.value;
+    ctx.entry.push(ctx.reviver(value, ctx.row, ctx.col));
     ctx.value = '';
     ctx.col++;
   }
@@ -165,6 +167,21 @@ class CSV {
     ctx.entry = [];
     ctx.row++;
     ctx.col = 1;
+  }
+
+  /** @private */
+  static inferType (value) {
+    switch (true) {
+      case value === 'true':
+      case value === 'false':
+        return value === 'true';
+      case /.\./.test(value):
+        return parseFloat(value);
+      case isFinite(value):
+        return parseInt(value);
+      default:
+        return value;
+    }
   }
 }
 

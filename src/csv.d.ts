@@ -6,12 +6,12 @@ export default class CSV {
      * - typed - type coercion [false]
      *
      * @static
-     * @param {*} csv the CSV string to parse
-     * @param {*} [options] an object containing the options
-     * @param {*} [reviver] a custom function to modify the values
+     * @param {string} csv the CSV string to parse
+     * @param {object} [options] an object containing the options
+     * @param {function} [reviver] a custom function to modify the values
      * @returns a 2 dimensional array of `[entries][values]`
      */
-    static parse(csv: any, options?: any, reviver?: any): any;
+    static parse(csv: string, options?: any, reviver?: Function): any;
     /**
      * Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
      *
@@ -29,4 +29,6 @@ export default class CSV {
     static valueEnd(ctx: any): void;
     /** @private */
     static entryEnd(ctx: any): void;
+    /** @private */
+    static inferType(value: any): any;
 }
