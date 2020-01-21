@@ -3,7 +3,7 @@ export default class CSV {
      * Takes a string of CSV data and converts it to a 2 dimensional array
      *
      * options
-     * - typed - type coercion [false]
+     * - typed - infer types [false]
      *
      * @static
      * @param {string} csv the CSV string to parse
@@ -16,7 +16,7 @@ export default class CSV {
      * Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
      *
      * options
-     * - eof - add a trailing newline at the end [true]
+     * - eof - add a trailing newline at the end of file [true]
      *
      * @static
      * @param {Array} array the input array to stringify

@@ -12,7 +12,7 @@ A fast, simple, easy-to-use CSV parser
 - ECMAScript Module
 - CommonJS Bundle Included
 - Typescript Compatible
-- Tiny Footprint (1.4K minified)
+- Tiny Footprint (2K minified)
 
 This package combines the best of [jQuery-CSV][] and Douglas Crockford's [JSON-js][].
 
@@ -39,11 +39,11 @@ import CSV from 'csv-es';
 
 ## CSV.parse()
 
-Takes a string of CSV data and converts it to a 2 dimensional array.
+Takes a string of CSV data and converts it to a 2 dimensional array of `[entries][values]`
 
 ### Arguments
 
-```CSV.parse(csv, {options}, reviver(value, col, row))```
+```CSV.parse(csv, {options}, reviver(value, col, row)) : [entries][values]```
 
 - csv - the CSV string to parse
 - options
@@ -70,15 +70,15 @@ console.log(parsed);
 
 ## CSV.stringify()
 
-Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
+Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 
 ### Arguments
 
-```CSV.stringify(array, {options}, replacer(value, col, row))```
+```CSV.stringify(array, {options}, replacer(value, col, row)) : string```
 
 - array - the input array to stringify
 - options
-  - eof - add a trailing newline at the end (default `true`)
+  - eof - add a trailing newline at the end of file (default `true`)
 - replacer - a custom function to modify the values (default `(value) => value`)
 
 ### Example

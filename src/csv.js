@@ -3,7 +3,7 @@ export default class CSV {
    * Takes a string of CSV data and converts it to a 2 dimensional array
    *
    * options
-   * - typed - type coercion [false]
+   * - typed - infer types [false]
    *
    * @static
    * @param {string} csv the CSV string to parse
@@ -12,7 +12,6 @@ export default class CSV {
    * @returns {Array} a 2 dimensional array of `[entries][values]`
    */
   static parse (csv, options, reviver = v => v) {
-    // TODO: Add input checking
     let matches = [];
     let match = '';
     let state = 0;
@@ -112,7 +111,7 @@ export default class CSV {
    * Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
    *
    * options
-   * - eof - add a trailing newline at the end [true]
+   * - eof - add a trailing newline at the end of file [true]
    *
    * @static
    * @param {Array} array the input array to stringify
@@ -121,8 +120,6 @@ export default class CSV {
    * @returns {string} the CSV string
    */
   static stringify (array, options = {}, replacer = v => v) {
-    // TODO: Add input checking
-
     const ctx = Object.create(null);
     ctx.options = options;
     ctx.options.eof = ctx.options.eof !== undefined ? ctx.options.eof : true;
