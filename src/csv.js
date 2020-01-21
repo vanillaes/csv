@@ -17,6 +17,7 @@ export default class CSV {
     let match = '';
     let state = 0;
     const ctx = Object.create(null);
+    ctx.reviver = reviver;
     ctx.value = '';
     ctx.entry = [];
     ctx.output = [];
@@ -152,7 +153,7 @@ export default class CSV {
 
   /** @private */
   static valueEnd (ctx) {
-    ctx.entry.push(ctx.value);
+    ctx.entry.push(ctx.reviver(ctx.value, ctx.row, ctx.col));
     ctx.value = '';
     ctx.col++;
   }
