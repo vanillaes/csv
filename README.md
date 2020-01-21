@@ -47,7 +47,7 @@ Takes a string of CSV data and converts it to a 2 dimensional array.
 
 - csv - the CSV string to parse
 - options
-  - *typed - type coercion (default `false`)* **NOT IMPLEMENTED**
+  - typed - infer types (default `false`)
 - reviver - a custom function to modify the output (default `value => value`)
 
 ### Example
