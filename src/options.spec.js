@@ -8,6 +8,8 @@ const typed1 = require('./__test__/typed1.json');
 const typed2 = require('./__test__/typed2.json');
 const replacer1 = require('./__test__/replacer1.json');
 const replacer2 = require('./__test__/replacer2.json');
+const eof1 = require('./__test__/eof1.json');
+const eof2 = require('./__test__/eof2.json');
 
 test('Reviver #1 - The reviver should append 1 to each value', (t) => {
   const expect = reviver1.json;
@@ -57,6 +59,24 @@ test('Replacer #1 - The replacer should append 1 to each value', (t) => {
 test('Replacer #2 - The replacer should output the row:col values', (t) => {
   const expect = replacer2.csv.join('\n');
   const result = CSV.stringify(replacer2.json, {}, (value, row, col) => `${row}:${col}`);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('EOF #1 - When set to true the formatter should include a newline at the end of file', (t) => {
+  const expect = eof1.csv.join('\n');
+  const result = CSV.stringify(eof1.json, { eof: true });
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('EOF #2- When set to false the formatter should not include a newline at the end of file', (t) => {
+  const expect = eof2.csv.join('\n');
+  const result = CSV.stringify(eof2.json, { eof: false });
 
   t.deepEqual(result, expect);
 

@@ -1,0 +1,23 @@
+{
+  "description": [
+    "When eof is set to false the formatter should not add a newline at end of file"
+  ],
+  "csv": [
+    "aaa,bbb,ccc",
+    "zzz,yyy,xxx"
+  ],
+  "json": [
+    [
+      "aaa",
+      "bbb",
+      "ccc"
+    ],
+    [
+      "zzz",
+      "yyy",
+      "xxx"
+    ]
+  ]
+}
+
+
