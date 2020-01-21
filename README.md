@@ -43,12 +43,12 @@ Takes a string of CSV data and converts it to a 2 dimensional array.
 
 ### Arguments
 
-```CSV.parse(csv, {options}, reviver(value, col, row){})```
+```CSV.parse(csv, {options}, reviver(value, col, row))```
 
 - csv - the CSV string to parse
 - options
-  - *typed - type coercion (default false)* **NOT IMPLEMENTED**
-- *reviver - a custom function to modify the values* **NOT IMPLEMENTED** 
+  - *typed - type coercion (default `false`)* **NOT IMPLEMENTED**
+- reviver - a custom function to modify the output (default `value => value`)
 
 ### Example
 
@@ -74,11 +74,11 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV.
 
 ### Arguments
 
-```CSV.stringify(array, {options}, replacer(value, col, row){})```
+```CSV.stringify(array, {options}, replacer(value, col, row))```
 
 - array - the input array to stringify
 - options
-  - eof - add a trailing newline at the end (default true)
+  - eof - add a trailing newline at the end (default `true`)
 - *replacer - a custom function to modify the values* **NOT IMPLEMENTED**
 
 ### Example
