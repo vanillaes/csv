@@ -1,0 +1,16 @@
+{
+  "description": [
+    "Can infer data containing integers"
+  ],
+  "csv": [
+    "123,456,789",
+    ""
+  ],
+  "json": [
+    [
+      123,
+      456,
+      789
+    ]
+  ]
+}

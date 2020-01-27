@@ -133,8 +133,10 @@ export default class CSV {
       let entry = '';
       ctx.col = 1;
       row.forEach((col, cIdx) => {
-        col = col.replace('"', '""');
-        col = /"|,|\r\n|\n|\r/.test(col) ? `"${col}"` : col;
+        if (typeof col === 'string') {
+          col = col.replace('"', '""');
+          col = /"|,|\r\n|\n|\r/.test(col) ? `"${col}"` : col;
+        }
         entry += replacer(col, ctx.row, ctx.col);
         if (cIdx !== row.length - 1) {
           entry += ',';

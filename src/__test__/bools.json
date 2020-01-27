@@ -1,0 +1,16 @@
+{
+  "description": [
+    "Can infer data containing booleans"
+  ],
+  "csv": [
+    "true,false,true",
+    ""
+  ],
+  "json": [
+    [
+      true,
+      false,
+      true
+    ]
+  ]
+}
