@@ -7,9 +7,9 @@
     {
       "type": "node",
       "request": "launch",
+      "runtimeExecutable": "13.7.0",
       "name": "Test",
-      "program": "${file}",
-      "runtimeArgs": ["--experimental-modules"]
+      "program": "${file}"
     }
   ]
 }
