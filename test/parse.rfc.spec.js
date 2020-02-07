@@ -12,63 +12,63 @@ const rfc7 = require('./__test__/rfc7.json');
 
 test('RFC Rule #1 - One entry per line, each line ends with a newline', (t) => {
   const expect = rfc1.json;
-  const result = parse(rfc1.csv.join('\n'));
+  const actual = parse(rfc1.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('RFC Rule #2 - Trailing newline at the end of the file omitted', (t) => {
   const expect = rfc2.json;
-  const result = parse(rfc2.csv.join('\n'));
+  const actual = parse(rfc2.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('RFC Rule #3 - First row contains header data', (t) => {
   const expect = rfc3.json;
-  const result = parse(rfc3.csv.join('\n'));
+  const actual = parse(rfc3.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('RFC Rule #4 - Spaces are considered data and entries should not contain a trailing comma', (t) => {
   const expect = rfc4.json;
-  const result = parse(rfc4.csv.join('\n'));
+  const actual = parse(rfc4.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('RFC Rule #5 - Lines may or may not be delimited by double-quotes', (t) => {
   const expect = rfc5.json;
-  const result = parse(rfc5.csv.join('\n'));
+  const actual = parse(rfc5.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('RFC Rule #6 - Fields containing line breaks, double-quotes, and commas should be enclosed in double-quotes', (t) => {
   const expect = rfc6.json;
-  const result = parse(rfc6.csv.join('\n'));
+  const actual = parse(rfc6.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('RFC Rule #7 - If double-quotes are used to enclose fields, then a double-quote appering inside a field must be escaped by a preceding it with another double-quote', (t) => {
   const expect = rfc7.json;
-  const result = parse(rfc7.csv.join('\n'));
+  const actual = parse(rfc7.csv.join('\n'));
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });

@@ -13,72 +13,72 @@ const eof2 = require('./__test__/eof2.json');
 
 test('Reviver #1 - The reviver should append 1 to each value', (t) => {
   const expect = reviver1.json;
-  const result = CSV.parse(reviver1.csv.join('\n'), null, (value) => value + '1');
+  const actual = CSV.parse(reviver1.csv.join('\n'), null, (value) => value + '1');
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('Reviver #2 - The reviver should output the row:col values', (t) => {
   const expect = reviver2.json;
-  const result = CSV.parse(reviver2.csv.join('\n'), null, (value, row, col) => `${row}:${col}`);
+  const actual = CSV.parse(reviver2.csv.join('\n'), null, (value, row, col) => `${row}:${col}`);
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('Typed #1 - When set to true the parser should infer the value types', (t) => {
   const expect = typed1.json;
-  const result = CSV.parse(typed1.csv.join('\n'), { typed: true });
+  const actual = CSV.parse(typed1.csv.join('\n'), { typed: true });
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('Typed #2- When set to false the parser should not infer the value types', (t) => {
   const expect = typed2.json;
-  const result = CSV.parse(typed2.csv.join('\n'), { typed: false });
+  const actual = CSV.parse(typed2.csv.join('\n'), { typed: false });
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('Replacer #1 - The replacer should append 1 to each value', (t) => {
   const expect = replacer1.csv.join('\n');
-  const result = CSV.stringify(replacer1.json, {}, (value) => value + '1');
+  const actual = CSV.stringify(replacer1.json, {}, (value) => value + '1');
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('Replacer #2 - The replacer should output the row:col values', (t) => {
   const expect = replacer2.csv.join('\n');
-  const result = CSV.stringify(replacer2.json, {}, (value, row, col) => `${row}:${col}`);
+  const actual = CSV.stringify(replacer2.json, {}, (value, row, col) => `${row}:${col}`);
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('EOF #1 - When set to true the formatter should include a newline at the end of file', (t) => {
   const expect = eof1.csv.join('\n');
-  const result = CSV.stringify(eof1.json, { eof: true });
+  const actual = CSV.stringify(eof1.json, { eof: true });
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
 
 test('EOF #2- When set to false the formatter should not include a newline at the end of file', (t) => {
   const expect = eof2.csv.join('\n');
-  const result = CSV.stringify(eof2.json, { eof: false });
+  const actual = CSV.stringify(eof2.json, { eof: false });
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });
