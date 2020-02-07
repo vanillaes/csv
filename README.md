@@ -100,12 +100,12 @@ console.log(stringified);
 
 ## CommonJS
 
-A CommonJS bundle is included for backward compatible with `node <= 13.2`
+A `.cjs` bundle is included for CommonJS compatibility 
 
 ### CSV.parse()
 
 ```javascript
-const CSV = require('csv-es/index.cjs');
+const CSV = require('csv-es');
 const csv = // the csv string
 const data = CSV.parse(csv);
 ```
@@ -113,7 +113,7 @@ const data = CSV.parse(csv);
 ### CSV.stringify()
 
 ```javascript
-const CSV = require('csv-es/index.cjs');
+const CSV = require('csv-es');
 const data = // the a 2-dimensional array
 const csv = CSV.stringify(data);
 ```
