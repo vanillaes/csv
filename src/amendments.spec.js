@@ -1,5 +1,5 @@
 import test from 'tape';
-import CSV from './csv.js';
+import CSV from 'csv-es';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const rfcA1 = require('./__test__/rfca1.json');

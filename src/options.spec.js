@@ -1,5 +1,5 @@
 import test from 'tape';
-import CSV from './csv.js';
+import CSV from 'csv-es';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const reviver1 = require('./__test__/reviver1.json');
