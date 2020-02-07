@@ -23,9 +23,12 @@
     }
   ],
   "repository": "http://github.com/vanillaes/csv-es/",
-  "main": "index.js",
-  "module": "dist/csv-es.cjs",
   "type": "module",
+  "main": "index.cjs",
+  "exports": {
+    "import": "./index.js",
+    "require": "./index.cjs"
+  },
   "types": "index.d.ts",
   "scripts": {
     "test": "tape-es",
