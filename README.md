@@ -2,9 +2,10 @@
 
 CSV-ES is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
 
-[![GitHub Releases](https://img.shields.io/github/release/vanillaes/csv-es.svg)](https://github.com/vanillaes/csv-es/releases)
-[![NPM Release](https://img.shields.io/npm/v/csv-es.svg)](https://www.npmjs.com/package/csv-es)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillaes/csv-es/master/LICENSE)
+[![GitHub Releases](https://badgen.net/github/tag/vanillaes/csv-es)](https://github.com/vanillaes/csv-es/releases)
+[![NPM Release](https://badgen.net/npm/v/csv-es)](https://www.npmjs.com/package/csv-es)
+[![Bundlephobia](https://badgen.net/bundlephobia/minzip/csv-es)](https://bundlephobia.com/result?p=csv-es)
+[![MIT License](https://badgen.net/github/license/vanillaes/csv-es)](https://raw.githubusercontent.com/vanillaes/csv-es/master/LICENSE)
 [![Latest Status](https://github.com/vanillaes/csv-es/workflows/Latest/badge.svg)](https://github.com/vanillaes/csv-es/actions)
 [![Release Status](https://github.com/vanillaes/csv-es/workflows/Release/badge.svg)](https://github.com/vanillaes/csv-es/actions)
 
