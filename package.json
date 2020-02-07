@@ -27,9 +27,6 @@
   "module": "dist/csv-es.cjs",
   "type": "module",
   "types": "index.d.ts",
-  "engines": {
-    "node": ">=13.2"
-  },
   "scripts": {
     "test": "tape-es",
     "test:watch": "tape-watch-es",
@@ -52,6 +49,9 @@
     "rollup-plugin-terser": "^5.2.0",
     "semistandard": "^14.2.0",
     "tape-es": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=13.7"
   },
   "semistandard": {
     "parser": "babel-eslint"
