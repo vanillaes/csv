@@ -33,7 +33,7 @@
   "scripts": {
     "test": "tape-es",
     "test:watch": "tape-watch-es",
-    "test:compat": "node src/compat.spec.cjs",
+    "test:compat": "node test/compat.spec.cjs",
     "lint": "semistandard",
     "types": "npx tsc -p .config/jsconfig.json",
     "build": "npm run build:cjs && npm run build:min && npm run build:typings",
