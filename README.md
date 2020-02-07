@@ -1,31 +1,18 @@
+<h1 align="center">CSV-ES</h1>
+
+CSV-ES is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
+
 [![GitHub Releases](https://img.shields.io/github/release/vanillaes/csv-es.svg)](https://github.com/vanillaes/csv-es/releases)
 [![NPM Release](https://img.shields.io/npm/v/csv-es.svg)](https://www.npmjs.com/package/csv-es)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillaes/csv-es/master/LICENSE)
 [![Latest Status](https://github.com/vanillaes/csv-es/workflows/Latest/badge.svg)](https://github.com/vanillaes/csv-es/actions)
 [![Release Status](https://github.com/vanillaes/csv-es/workflows/Release/badge.svg)](https://github.com/vanillaes/csv-es/actions)
 
-# CSV-ES
-
-A fast, simple, easy-to-use CSV parser
 
 - RFC Compliant
 - ECMAScript Module
 - CommonJS Bundle Included
 - Typescript Compatible
-- Tiny Footprint (2K minified)
-
-This package combines the best of [jQuery-CSV][] and Douglas Crockford's [JSON-js][].
-
-It provides 2 functions
-
-- CSV.parse()
-- CSV.stringify()
-
-*Note: If you need a super configurable CSV parser, take a look at [PapaParse][].**
-
-[jQuery-CSV]: https://github.com/typeiii/jquery-csv
-[JSON-js]: https://github.com/douglascrockford/JSON-js
-[PapaParse]: https://www.papaparse.com/
 
 ## Installation
 
