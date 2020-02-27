@@ -192,5 +192,3 @@ function inferType (value) {
       return value;
   }
 }
-
-export default { parse, stringify };

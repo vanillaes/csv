@@ -5,7 +5,8 @@
     "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules"

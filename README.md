@@ -15,7 +15,7 @@ CSV-ES is a universal JavaScript CSV parser designed specifically to be simple, 
 
 - RFC Compliant
 - ECMAScript Module
-- CommonJS Bundle Included
+- CommonJS Compatible
 - Typescript Compatible
 
 ## Installation
@@ -25,7 +25,13 @@ npm install csv-es
 ```
 
 ```javascript
-import CSV from 'csv-es';
+import * as CSV from 'csv-es';
+```
+
+or 
+
+```javascript
+import { parse, stringify } from 'csv-es';
 ```
 
 ## CSV.parse()
@@ -88,7 +94,6 @@ console.log(stringified);
 > "zzz,yyy,xxx"
 ```
 
-
 ## CommonJS
 
 A `.cjs` bundle is included for CommonJS compatibility 
@@ -109,6 +114,6 @@ const data = // the a 2-dimensional array
 const csv = CSV.stringify(data);
 ```
 
-## Typings
+## Typescript
 
 Typings are generated from JSDoc using Typescript. They are 100% compatible with VSCode Intellisense and will work seamlessly with Typescript.

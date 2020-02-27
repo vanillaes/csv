@@ -24,8 +24,3 @@ export function parse(csv: string, options?: any, reviver?: Function): any[];
  * @returns {string} the CSV string
  */
 export function stringify(array: any[], options?: any, replacer?: Function): string;
-declare namespace _default {
-    export { parse };
-    export { stringify };
-}
-export default _default;

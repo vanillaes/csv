@@ -197,8 +197,5 @@ function inferType (value) {
   }
 }
 
-var index = { parse, stringify };
-
-exports.default = index;
 exports.parse = parse;
 exports.stringify = stringify;
