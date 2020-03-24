@@ -1,6 +1,6 @@
 {
   "name": "csv-es",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "keywords": [
     "csv",
