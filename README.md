@@ -40,12 +40,14 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 
 ### Arguments
 
-```CSV.parse(csv, {options}, reviver(value, col, row)) : [entries][values]```
+```CSV.parse(csv, {options}, reviver(value, row, col)) : [entries][values]```
 
 - csv - the CSV string to parse
 - options
   - typed - infer types (default `false`)
-- reviver - a custom function to modify the output (default `(value) => value`)
+- reviver<sup>1</sup> - a custom function to modify the output (default `(value) => value`)
+
+*<sup>1</sup> Values for `row` and `col` are 1-based.*
 
 ### Example
 
@@ -71,12 +73,14 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 
 ### Arguments
 
-```CSV.stringify(array, {options}, replacer(value, col, row)) : string```
+```CSV.stringify(array, {options}, replacer(value, row, col)) : string```
 
 - array - the input array to stringify
 - options
   - eof - add a trailing newline at the end of file (default `true`)
-- replacer - a custom function to modify the values (default `(value) => value`)
+- replacer<sup>1</sup> - a custom function to modify the values (default `(value) => value`)
+
+*<sup>1</sup> Values for `row` and `col` are 1-based.*
 
 ### Example
 
