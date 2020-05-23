@@ -1,5 +1,5 @@
 {
-  "name": "csv-es",
+  "name": "@vanillaes/csv",
   "version": "2.0.3",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "keywords": [
@@ -22,7 +22,7 @@
       "url": "http://coltonehrman.com"
     }
   ],
-  "repository": "http://github.com/vanillaes/csv-es/",
+  "repository": "http://github.com/vanillaes/csv/",
   "type": "module",
   "main": "index.cjs",
   "exports": {
@@ -54,10 +54,10 @@
     "semistandard": "^14.2.0",
     "tape-es": "^1.2.5"
   },
-  "engines": {
-    "node": "~14"
-  },
   "semistandard": {
     "parser": "babel-eslint"
+  },
+  "engines": {
+    "node": "~14"
   }
 }
