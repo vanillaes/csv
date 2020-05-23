@@ -1,6 +1,6 @@
-<h1 align="center">CSV-ES</h1>
+<h1 align="center">CSV</h1>
 
-CSV-ES is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
+CSV is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
 
 [![GitHub Releases](https://badgen.net/github/tag/vanillaes/csv)](https://github.com/vanillaes/csv/releases)
 [![NPM Release](https://badgen.net/npm/v/@vanillaes/csv)](https://www.npmjs.com/package/@vanillaes/csv)
@@ -93,7 +93,7 @@ A `.cjs` bundle is included for CommonJS compatibility
 ### CSV.parse()
 
 ```javascript
-const CSV = require('@vanillaes/csv-es');
+const CSV = require('@vanillaes/csv');
 const csv = // the csv string
 const data = CSV.parse(csv);
 ```
@@ -101,7 +101,7 @@ const data = CSV.parse(csv);
 ### CSV.stringify()
 
 ```javascript
-const CSV = require('@vanillaes/csv-es');
+const CSV = require('@vanillaes/csv');
 const data = // the a 2-dimensional array
 const csv = CSV.stringify(data);
 ```
