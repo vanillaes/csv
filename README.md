@@ -2,12 +2,12 @@
 
 CSV-ES is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
 
-[![GitHub Releases](https://badgen.net/github/tag/vanillaes/csv-es)](https://github.com/vanillaes/csv-es/releases)
-[![NPM Release](https://badgen.net/npm/v/csv-es)](https://www.npmjs.com/package/csv-es)
-[![Bundlephobia](https://badgen.net/bundlephobia/minzip/csv-es)](https://bundlephobia.com/result?p=csv-es)
-[![MIT License](https://badgen.net/github/license/vanillaes/csv-es)](https://raw.githubusercontent.com/vanillaes/csv-es/master/LICENSE)
-[![Latest Status](https://github.com/vanillaes/csv-es/workflows/Latest/badge.svg)](https://github.com/vanillaes/csv-es/actions)
-[![Release Status](https://github.com/vanillaes/csv-es/workflows/Release/badge.svg)](https://github.com/vanillaes/csv-es/actions)
+[![GitHub Releases](https://badgen.net/github/tag/vanillaes/csv)](https://github.com/vanillaes/csv/releases)
+[![NPM Release](https://badgen.net/npm/v/@vanillaes/csv)](https://www.npmjs.com/package/@vanillaes/csv)
+[![Bundlephobia](https://badgen.net/bundlephobia/minzip/@vanillaes/csv)](https://bundlephobia.com/result?p=@vanillaes/csv)
+[![MIT License](https://badgen.net/github/license/vanillaes/csv)](https://raw.githubusercontent.com/vanillaes/csv/master/LICENSE)
+[![Latest Status](https://github.com/vanillaes/csv/workflows/Latest/badge.svg)](https://github.com/vanillaes/csv/actions)
+[![Release Status](https://github.com/vanillaes/csv/workflows/Release/badge.svg)](https://github.com/vanillaes/csv/actions)
 
 ## Features
 
@@ -19,17 +19,7 @@ CSV-ES is a universal JavaScript CSV parser designed specifically to be simple, 
 ## Installation
 
 ```sh
-npm install csv-es
-```
-
-```javascript
-import * as CSV from 'csv-es';
-```
-
-or 
-
-```javascript
-import { parse, stringify } from 'csv-es';
+npm install @vanillaes/csv
 ```
 
 ## CSV.parse()
@@ -50,13 +40,13 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 ### Example
 
 ```javascript
-import CSV from '/path/to/csv/index.js';
+import { parse } from '@vanillaes/csv';
 const csv = `
 "header1,header2,header3"
 "aaa,bbb,ccc"
 "zzz,yyy,xxx"
 `;
-const parsed = CSV.parse(csv)
+const parsed = parse(csv)
 console.log(parsed);
 > [
 >   [ "header1", "header2", "header3" ],
@@ -83,13 +73,13 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 ### Example
 
 ```javascript
-import CSV from '/path/to/csv/index.js';
+import { stringify } from '@vanillaes/csv';
 const data = [
   [ "header1", "header2", "header3" ],
   [ "aaa", "bbb", "ccc" ],
   [ "zzz", "yyy", "xxx" ]
 ];
-const stringified = CSV.stringify(data)
+const stringified = stringify(data)
 console.log(stringified);
 > "header1,header2,header3"
 > "aaa,bbb,ccc"
@@ -103,7 +93,7 @@ A `.cjs` bundle is included for CommonJS compatibility
 ### CSV.parse()
 
 ```javascript
-const CSV = require('csv-es');
+const CSV = require('@vanillaes/csv-es');
 const csv = // the csv string
 const data = CSV.parse(csv);
 ```
@@ -111,7 +101,7 @@ const data = CSV.parse(csv);
 ### CSV.stringify()
 
 ```javascript
-const CSV = require('csv-es');
+const CSV = require('@vanillaes/csv-es');
 const data = // the a 2-dimensional array
 const csv = CSV.stringify(data);
 ```
