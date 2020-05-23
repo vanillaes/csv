@@ -1,5 +1,5 @@
 const test = require('tape');
-const CSV = require('csv-es');
+const CSV = require('@vanillaes/csv');
 const rfc1 = require('./__test__/rfc1.json');
 
 test('CSV.parse() - should be require-able via CommonJS', t => {

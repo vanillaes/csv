@@ -1,5 +1,5 @@
 import test from 'tape';
-import { parse } from 'csv-es';
+import { parse } from '@vanillaes/csv';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const rfc1 = require('./__test__/rfc1.json');
