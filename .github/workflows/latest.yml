@@ -1,9 +1,6 @@
 name: Latest
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   verify:
@@ -20,11 +17,11 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.OS }}-npm-cache-
       - name: Install
-        run: npm ci
+        run: npm i
       - name: Test
         run: npm t
       - name: Lint
