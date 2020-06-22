@@ -34,7 +34,7 @@
     "test": "tape-es",
     "test:watch": "tape-watch-es",
     "test:compat": "node test/compat.spec.cjs",
-    "lint": "semistandard",
+    "lint": "esmtk lint",
     "types": "npx tsc -p .config/jsconfig.json",
     "build": "npm run build:cjs && npm run build:min && npm run build:typings",
     "build:cjs": "npx rollup --config .config/cjs.config.js",
@@ -49,13 +49,14 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "esmtk": "^0.1.1",
     "rollup-plugin-terser": "^5.2.0",
-    "semistandard": "^14.2.0",
     "tape-es": "^1.2.5"
   },
-  "semistandard": {
-    "parser": "babel-eslint"
+  "standard": {
+    "ignore": [
+      "index.cjs"
+    ]
   },
   "engines": {
     "node": "~14"
