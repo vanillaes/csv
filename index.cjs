@@ -39,68 +39,68 @@ function parse (csv, options, reviver = v => v) {
         switch (true) {
           case match === '"':
             state = 3;
-            break;
+            break
           case match === ',':
             state = 0;
             valueEnd(ctx);
-            break;
+            break
           case isNewline.test(match):
             state = 0;
             valueEnd(ctx);
             entryEnd(ctx);
-            break;
+            break
           default:
             ctx.value += match;
             state = 2;
-            break;
+            break
         }
-        break;
+        break
       case 2: // un-delimited input
         switch (true) {
           case match === ',':
             state = 0;
             valueEnd(ctx);
-            break;
+            break
           case isNewline.test(match):
             state = 0;
             valueEnd(ctx);
             entryEnd(ctx);
-            break;
+            break
           default:
             state = 4;
-            throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
+            throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`)
         }
-        break;
+        break
       case 3: // delimited input
         switch (true) {
           case match === '"':
             state = 4;
-            break;
+            break
           default:
             state = 3;
             ctx.value += match;
-            break;
+            break
         }
-        break;
+        break
       case 4: // escaped or closing delimiter
         switch (true) {
           case match === '"':
             state = 3;
             ctx.value += match;
-            break;
+            break
           case match === ',':
             state = 0;
             valueEnd(ctx);
-            break;
+            break
           case isNewline.test(match):
             state = 0;
             valueEnd(ctx);
             entryEnd(ctx);
-            break;
+            break
           default:
-            throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`);
+            throw Error(`CSVError: Illegal state [row:${ctx.row}, col:${ctx.col}]`)
         }
-        break;
+        break
     }
   }
 
@@ -110,7 +110,7 @@ function parse (csv, options, reviver = v => v) {
     entryEnd(ctx);
   }
 
-  return ctx.output;
+  return ctx.output
 }
 
 /**
@@ -153,15 +153,15 @@ function stringify (array, options = {}, replacer = v => v) {
       case ctx.options.eof:
       case !ctx.options.eof && rIdx !== array.length - 1:
         ctx.output += `${entry}\n`;
-        break;
+        break
       default:
         ctx.output += `${entry}`;
-        break;
+        break
     }
     ctx.row++;
   });
 
-  return ctx.output;
+  return ctx.output
 }
 
 /** @private */
@@ -187,13 +187,13 @@ function inferType (value) {
   switch (true) {
     case value === 'true':
     case value === 'false':
-      return value === 'true';
+      return value === 'true'
     case isNumber.test(value):
-      return parseFloat(value);
+      return parseFloat(value)
     case isFinite(value):
-      return parseInt(value);
+      return parseInt(value)
     default:
-      return value;
+      return value
   }
 }
 
