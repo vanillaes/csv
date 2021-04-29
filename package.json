@@ -47,18 +47,17 @@
     "preversion": "npm test && npm run test:compat && npm run lint && npm run types",
     "postversion": "git push --follow-tags"
   },
-  "dependencies": {},
   "devDependencies": {
-    "esmtk": "^0.1.1",
+    "esmtk": "^0.5.1",
     "rollup-plugin-terser": "^5.2.0",
     "tape-es": "^1.2.5"
+  },
+  "engines": {
+    "node": ">=14"
   },
   "standard": {
     "ignore": [
       "index.cjs"
     ]
-  },
-  "engines": {
-    "node": "~14"
   }
 }

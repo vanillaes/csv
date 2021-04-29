@@ -24,8 +24,8 @@ function parse (csv, options, reviver = v => v) {
   ctx.col = 1;
   ctx.row = 1;
 
-  const lexer = new RegExp(/"|,|\r\n|\n|\r|[^",\r\n]+/y);
-  const isNewline = new RegExp(/^(\r\n|\n|\r)$/);
+  const lexer = /"|,|\r\n|\n|\r|[^",\r\n]+/y;
+  const isNewline = /^(\r\n|\n|\r)$/;
 
   let matches = [];
   let match = '';
@@ -133,7 +133,7 @@ function stringify (array, options = {}, replacer = v => v) {
   ctx.col = 1;
   ctx.output = '';
 
-  const needsDelimiters = new RegExp(/"|,|\r\n|\n|\r/);
+  const needsDelimiters = /"|,|\r\n|\n|\r/;
 
   array.forEach((row, rIdx) => {
     let entry = '';
@@ -182,7 +182,7 @@ function entryEnd (ctx) {
 
 /** @private */
 function inferType (value) {
-  const isNumber = new RegExp(/.\./);
+  const isNumber = /.\./;
 
   switch (true) {
     case value === 'true':
