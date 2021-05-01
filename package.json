@@ -22,7 +22,7 @@
       "url": "http://coltonehrman.com"
     }
   ],
-  "repository": "http://github.com/vanillaes/csv/",
+  "repository": "http://github.com/vanillaes/csv",
   "type": "module",
   "main": "index.cjs",
   "exports": {
