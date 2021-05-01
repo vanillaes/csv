@@ -3,10 +3,10 @@
   "version": "2.1.4",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "keywords": [
+    "esm",
+    "esmodule",
     "csv",
-    "parse",
-    "stringify",
-    "vanilla",
+    "csv-parser",
     "rfc4180"
   ],
   "license": "MIT",
