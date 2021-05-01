@@ -2,12 +2,13 @@
 
 CSV is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
 
-[![GitHub Releases](https://badgen.net/github/tag/vanillaes/csv)](https://github.com/vanillaes/csv/releases)
-[![NPM Release](https://badgen.net/npm/v/@vanillaes/csv)](https://www.npmjs.com/package/@vanillaes/csv)
-[![Bundlephobia](https://badgen.net/bundlephobia/minzip/@vanillaes/csv)](https://bundlephobia.com/result?p=@vanillaes/csv)
-[![MIT License](https://badgen.net/github/license/vanillaes/csv)](https://raw.githubusercontent.com/vanillaes/csv/master/LICENSE)
-[![Latest Status](https://github.com/vanillaes/csv/workflows/Latest/badge.svg)](https://github.com/vanillaes/csv/actions)
-[![Release Status](https://github.com/vanillaes/csv/workflows/Release/badge.svg)](https://github.com/vanillaes/csv/actions)
+<div align="center">
+  <a href="https://github.com/vanillaes/csv/releases"><img src="https://badgen.net/github/tag/vanillaes/csv" alt="GitHub Release"></a>
+  <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/v/@vanillaes/csv" alt="NPM Release"></a>
+  <a href="https://bundlephobia.com/result?p=@vanillaes/csv"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/csv" alt="Bundlephobia"></a>
+  <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Latest/badge.svg" alt="Latest Status"></a>
+  <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Release/badge.svg" alt="Release Status"></a>
+</div>
 
 ## Features
 
