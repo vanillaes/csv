@@ -26,7 +26,7 @@
   "type": "module",
   "main": "index.cjs",
   "exports": {
-    "import": "./index.js",
+    "import": "./index.min.js",
     "require": "./index.cjs"
   },
   "types": "index.d.ts",
@@ -37,8 +37,8 @@
     "lint": "esmtk lint",
     "types": "npx tsc -p .config/jsconfig.json",
     "build": "npm run build:cjs && npm run build:min && npm run build:typings",
-    "build:cjs": "npx rollup --config .config/cjs.config.js",
-    "build:min": "npx rollup --config .config/min.config.js",
+    "build:cjs": "esmtk commonjs index.js index.cjs",
+    "build:min": "esmtk minify index.js index.min.js",
     "build:typings": "npx tsc -p .config/tsconfig.json",
     "clean": "npm run clean:builds && npm run clean:typings",
     "clean:builds": "npx rimraf index.cjs && npx rimraf index.min.js",
@@ -49,7 +49,6 @@
   },
   "devDependencies": {
     "esmtk": "^0.5.3",
-    "rollup-plugin-terser": "^5.3.1",
     "tape-es": "^1.2.13"
   },
   "engines": {
