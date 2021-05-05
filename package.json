@@ -24,7 +24,6 @@
   ],
   "repository": "http://github.com/vanillaes/csv",
   "type": "module",
-  "main": "index.cjs",
   "exports": {
     "import": "./index.min.js",
     "require": "./index.cjs"
