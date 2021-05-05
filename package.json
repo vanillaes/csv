@@ -1,6 +1,6 @@
 {
   "name": "@vanillaes/csv",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "keywords": [
     "esm",
