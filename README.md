@@ -8,6 +8,8 @@ CSV is a universal JavaScript CSV parser designed specifically to be simple, fas
   <a href="https://bundlephobia.com/result?p=@vanillaes/csv"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/csv" alt="Bundlephobia"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Release/badge.svg" alt="Release Status"></a>
+
+  <a href="https://discord.gg/aSWYgtybzV"><img alt="Discord" src="https://img.shields.io/discord/723296249121603604?color=%23738ADB"></a>
 </div>
 
 ## Features
