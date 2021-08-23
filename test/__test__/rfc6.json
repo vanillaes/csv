@@ -4,12 +4,12 @@
     "should be enclosed in double-quotes."
   ],
   "csv": [
-    "\"a\r\naa\",bbb,\"c,cc\""
+    "\"a\r\naa\",\"b\"\"b\"\"b\",\"c,cc\""
   ],
   "json": [
     [
       "a\r\naa",
-      "bbb",
+      "b\"b\"b",
       "c,cc"
     ]
   ]
