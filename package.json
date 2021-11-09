@@ -48,8 +48,8 @@
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
-    "esmtk": "^0.5.3",
-    "tape-es": "^1.2.13"
+    "esmtk": "^0.5.13",
+    "tape-es": "^1.2.16"
   },
   "engines": {
     "node": ">=14"
