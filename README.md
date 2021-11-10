@@ -19,17 +19,40 @@ CSV is a universal JavaScript CSV parser designed specifically to be simple, fas
 - CommonJS Compatible
 - Typescript Compatible
 
-## Installation
+## Imports
+
+This package works isomorphically in browser and server-side JavaScript
+
+### Browser
+
+Import directly from the local path or a CDN
+
+```html
+<script type="module">
+import { parse } from 'path/to/csv.js'
+</script>
+```
+
+### Node
+
+Install the package
 
 ```sh
 npm install @vanillaes/csv
 ```
 
-## CSV.parse()
+Import using the module path
+
+```javascript
+import { parse } from './node_modules/@vanillaes/csv/index.js'
+```
+## Usage
+
+### CSV.parse()
 
 Takes a string of CSV data and converts it to a 2 dimensional array of `[entries][values]`
 
-### Arguments
+#### Arguments
 
 ```CSV.parse(csv, {options}, reviver(value, row, col)) : [entries][values]```
 
@@ -40,7 +63,7 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 
 *<sup>1</sup> Values for `row` and `col` are 1-based.*
 
-### Example
+#### Example
 
 ```javascript
 import { parse } from '@vanillaes/csv';
@@ -58,11 +81,11 @@ console.log(parsed);
 > ]
 ```
 
-## CSV.stringify()
+### CSV.stringify()
 
 Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 
-### Arguments
+#### Arguments
 
 ```CSV.stringify(array, {options}, replacer(value, row, col)) : string```
 
@@ -73,7 +96,7 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 
 *<sup>1</sup> Values for `row` and `col` are 1-based.*
 
-### Example
+#### Example
 
 ```javascript
 import { stringify } from '@vanillaes/csv';
@@ -87,26 +110,6 @@ console.log(stringified);
 > "header1,header2,header3"
 > "aaa,bbb,ccc"
 > "zzz,yyy,xxx"
-```
-
-## CommonJS
-
-A `.cjs` bundle is included for CommonJS compatibility 
-
-### CSV.parse()
-
-```javascript
-const CSV = require('@vanillaes/csv');
-const csv = // the csv string
-const data = CSV.parse(csv);
-```
-
-### CSV.stringify()
-
-```javascript
-const CSV = require('@vanillaes/csv');
-const data = // the a 2-dimensional array
-const csv = CSV.stringify(data);
 ```
 
 ## Typescript
