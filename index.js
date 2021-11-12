@@ -136,7 +136,7 @@ export function stringify (array, options = {}, replacer = v => v) {
     ctx.col = 1
     row.forEach((col, cIdx) => {
       if (typeof col === 'string') {
-        col = col.replace(/"/g, '""');
+        col = col.replace(/"/g, '""')
         col = needsDelimiters.test(col) ? `"${col}"` : col
       }
       entry += replacer(col, ctx.row, ctx.col)
