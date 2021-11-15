@@ -16,7 +16,6 @@ CSV is a universal JavaScript CSV parser designed specifically to be simple, fas
 
 - RFC Compliant
 - ECMAScript Module
-- CommonJS Compatible
 - Typescript Compatible
 
 ## Imports
@@ -29,7 +28,15 @@ Import directly from the local path or a CDN
 
 ```html
 <script type="module">
-import { parse } from 'path/to/csv.js'
+import { parse } from 'path/to/csv/index.js'
+</script>
+```
+
+The minified version can be imported from
+
+```html
+<script type="module">
+import { parse } from 'path/to/csv/index.min.js'
 </script>
 ```
 
@@ -44,7 +51,7 @@ npm install @vanillaes/csv
 Import using the module path
 
 ```javascript
-import { parse } from './node_modules/@vanillaes/csv/index.js'
+import { parse } from '@vanillaes/csv'
 ```
 ## Usage
 

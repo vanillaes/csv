@@ -4,5 +4,4 @@
 test/
 CONTRIBUTING.md
 *.spec.js
-*.spec.cjs
 *.tgz
