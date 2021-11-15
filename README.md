@@ -73,7 +73,6 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 #### Example
 
 ```javascript
-import { parse } from '@vanillaes/csv';
 const csv = `
 "header1,header2,header3"
 "aaa,bbb,ccc"
@@ -106,7 +105,6 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 #### Example
 
 ```javascript
-import { stringify } from '@vanillaes/csv';
 const data = [
   [ "header1", "header2", "header3" ],
   [ "aaa", "bbb", "ccc" ],
