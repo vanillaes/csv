@@ -1,7 +1,6 @@
 import test from 'tape'
 import * as CSV from '@vanillaes/csv'
 import { createRequire } from 'module'
-import { sep } from 'path'
 const require = createRequire(import.meta.url)
 const reviver1 = require('./__test__/reviver1.json')
 const reviver2 = require('./__test__/reviver2.json')
