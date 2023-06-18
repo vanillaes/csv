@@ -66,6 +66,8 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 - csv - the CSV string to parse
 - options
   - typed - infer types (default `false`)
+  - separator - the used separator, one character (default `,`)
+  - delimiter - the used field delimiter, one character (default `"`)
 - reviver<sup>1</sup> - a custom function to modify the output (default `(value) => value`)
 
 *<sup>1</sup> Values for `row` and `col` are 1-based.*
@@ -98,6 +100,8 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 - array - the input array to stringify
 - options
   - eof - add a trailing newline at the end of file (default `true`)
+  - separator - the used separator, one character (default `,`)
+  - delimiter - the used field delimiter, one character (default `"`)
 - replacer<sup>1</sup> - a custom function to modify the values (default `(value) => value`)
 
 *<sup>1</sup> Values for `row` and `col` are 1-based.*
