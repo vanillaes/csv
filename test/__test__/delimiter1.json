@@ -1,0 +1,22 @@
+{
+    "description": [
+      "When options.delimiter is set the parser uses this character as delimiter"
+    ],
+    "csv": [
+      "'123','456','789'",
+      "false,true,Test",
+      ""
+    ],
+    "json": [
+      [
+        "123",
+        "456",
+        "789"
+      ],
+      [
+        "false",
+        "true",
+        "Test"
+      ]
+    ]
+  }

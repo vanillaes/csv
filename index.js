@@ -3,6 +3,8 @@
  *
  * options
  * - typed - infer types [false]
+ * - separator - use custom separator [,]
+ * - delimiter - use custom delimiter ["]
  *
  * @static
  * @param {string} csv the CSV string to parse
@@ -20,7 +22,10 @@ export function parse (csv, options, reviver = v => v) {
   ctx.col = 1
   ctx.row = 1
 
-  const lexer = /"|,|\r\n|\n|\r|[^",\r\n]+/y
+  if(ctx.options.delimiter === undefined) ctx.options.delimiter = '"';
+  if(ctx.options.separator === undefined) ctx.options.separator = ',';
+
+  const lexer = new RegExp(`${escapeRegExp(ctx.options.delimiter)}|${escapeRegExp(ctx.options.separator)}|\r\n|\n|\r|[^${escapeRegExp(ctx.options.delimiter)}${escapeRegExp(ctx.options.separator)}\r\n]+`, 'y')
   const isNewline = /^(\r\n|\n|\r)$/
 
   let matches = []
@@ -33,10 +38,10 @@ export function parse (csv, options, reviver = v => v) {
     switch (state) {
       case 0: // start of entry
         switch (true) {
-          case match === '"':
+          case match === ctx.options.delimiter:
             state = 3
             break
-          case match === ',':
+          case match === ctx.options.separator:
             state = 0
             valueEnd(ctx)
             break
@@ -53,7 +58,7 @@ export function parse (csv, options, reviver = v => v) {
         break
       case 2: // un-delimited input
         switch (true) {
-          case match === ',':
+          case match === ctx.options.separator:
             state = 0
             valueEnd(ctx)
             break
@@ -69,7 +74,7 @@ export function parse (csv, options, reviver = v => v) {
         break
       case 3: // delimited input
         switch (true) {
-          case match === '"':
+          case match === ctx.options.delimiter:
             state = 4
             break
           default:
@@ -80,11 +85,11 @@ export function parse (csv, options, reviver = v => v) {
         break
       case 4: // escaped or closing delimiter
         switch (true) {
-          case match === '"':
+          case match === ctx.options.delimiter:
             state = 3
             ctx.value += match
             break
-          case match === ',':
+          case match === ctx.options.separator:
             state = 0
             valueEnd(ctx)
             break
@@ -191,4 +196,9 @@ function inferType (value) {
     default:
       return value
   }
+}
+
+/** @private */
+function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }

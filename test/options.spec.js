@@ -1,6 +1,7 @@
 import test from 'tape'
 import * as CSV from '@vanillaes/csv'
 import { createRequire } from 'module'
+import { sep } from 'path'
 const require = createRequire(import.meta.url)
 const reviver1 = require('./__test__/reviver1.json')
 const reviver2 = require('./__test__/reviver2.json')
@@ -10,6 +11,10 @@ const replacer1 = require('./__test__/replacer1.json')
 const replacer2 = require('./__test__/replacer2.json')
 const eof1 = require('./__test__/eof1.json')
 const eof2 = require('./__test__/eof2.json')
+const separator1 = require('./__test__/separator1.json')
+const separator2 = require('./__test__/separator2.json')
+const delimiter1 = require('./__test__/delimiter1.json')
+const delimiter2 = require('./__test__/delimiter2.json')
 
 test('Reviver #1 - The reviver should append 1 to each value', (t) => {
   const expect = reviver1.json
@@ -77,6 +82,42 @@ test('EOF #1 - When set to true the formatter should include a newline at the en
 test('EOF #2- When set to false the formatter should not include a newline at the end of file', (t) => {
   const expect = eof2.csv.join('\n')
   const actual = CSV.stringify(eof2.json, { eof: false })
+
+  t.deepEqual(actual, expect)
+
+  t.end()
+})
+
+test('Separator #1 - When set the parser should use this character as separator', (t) => {
+  const expect = separator1.json
+  const actual = CSV.parse(separator1.csv.join('\n'), { separator: ';' })
+
+  t.deepEqual(actual, expect)
+
+  t.end()
+})
+
+test('Separator #2 - The parser accepts regular expression meta characters as separator', (t) => {
+  const expect = separator2.json
+  const actual = CSV.parse(separator2.csv.join('\n'), { separator: '|' })
+
+  t.deepEqual(actual, expect)
+
+  t.end()
+})
+
+test('Delimiter #1 - When set the parser should use this character as delimiter', (t) => {
+  const expect = delimiter1.json
+  const actual = CSV.parse(delimiter1.csv.join('\n'), { delimiter: '\'' })
+
+  t.deepEqual(actual, expect)
+
+  t.end()
+})
+
+test('Delimiter #2 - The parser accepts regular expression meta characters as delimiter', (t) => {
+  const expect = delimiter2.json
+  const actual = CSV.parse(delimiter2.csv.join('\n'), { delimiter: '|' })
 
   t.deepEqual(actual, expect)
 
