@@ -124,6 +124,8 @@ export function parse (csv, options, reviver = v => v) {
  *
  * options
  * - eof - add a trailing newline at the end of file [true]
+ * - separator - use custom separator [,]
+ * - delimiter - use custom delimiter ["]
  *
  * @static
  * @param {Array} array the input array to stringify
