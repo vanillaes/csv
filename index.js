@@ -22,8 +22,13 @@ export function parse (csv, options, reviver = v => v) {
   ctx.col = 1
   ctx.row = 1
 
-  if(ctx.options.delimiter === undefined) ctx.options.delimiter = '"';
-  if(ctx.options.separator === undefined) ctx.options.separator = ',';
+  ctx.options.delimiter = ctx.options.delimiter === undefined ? '"' : options.delimiter;
+  if(ctx.options.delimiter.length > 1 | ctx.options.delimiter.length === 0)
+    throw Error(`CSVError: delimiter must be one character [${ctx.options.separator}]`)
+    
+  ctx.options.separator = ctx.options.separator === undefined ? ',' : options.separator;
+  if(ctx.options.separator.length > 1 | ctx.options.separator.length === 0)
+    throw Error(`CSVError: separator must be one character [${ctx.options.separator}]`)
 
   const lexer = new RegExp(`${escapeRegExp(ctx.options.delimiter)}|${escapeRegExp(ctx.options.separator)}|\r\n|\n|\r|[^${escapeRegExp(ctx.options.delimiter)}${escapeRegExp(ctx.options.separator)}\r\n]+`, 'y')
   const isNewline = /^(\r\n|\n|\r)$/

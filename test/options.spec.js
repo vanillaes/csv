@@ -46,7 +46,7 @@ test('Typed #1 - When set to true the parser should infer the value types', (t) 
 test('Typed #2- When set to false the parser should not infer the value types', (t) => {
   const expect = typed2.json
   const actual = CSV.parse(typed2.csv.join('\n'), { typed: false })
-
+  
   t.deepEqual(actual, expect)
 
   t.end()
@@ -106,6 +106,19 @@ test('Separator #2 - The parser accepts regular expression meta characters as se
   t.end()
 })
 
+test('Separator #3 - The separator must be one character', (t) => {
+  t.throws(
+    () => CSV.parse(separator1.csv.join('\n'), { separator: '' }),
+    /separator must be one character/
+  )
+  t.throws(
+    () => CSV.parse(separator1.csv.join('\n'), { separator: '==' }),
+    /separator must be one character/
+  )
+
+  t.end()
+})
+
 test('Delimiter #1 - When set the parser should use this character as delimiter', (t) => {
   const expect = delimiter1.json
   const actual = CSV.parse(delimiter1.csv.join('\n'), { delimiter: '\'' })
@@ -120,6 +133,19 @@ test('Delimiter #2 - The parser accepts regular expression meta characters as de
   const actual = CSV.parse(delimiter2.csv.join('\n'), { delimiter: '|' })
 
   t.deepEqual(actual, expect)
+
+  t.end()
+})
+
+test('Delimiter #3 - The delimiter must be one character', (t) => {  
+  t.throws(
+    () => CSV.parse(delimiter1.csv.join('\n'), { delimiter: '' }),
+    /delimiter must be one character/
+  )
+  t.throws(
+    () => CSV.parse(delimiter1.csv.join('\n'), { delimiter: '==' }),
+    /delimiter must be one character/
+  )
 
   t.end()
 })
