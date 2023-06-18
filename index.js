@@ -3,6 +3,8 @@
  *
  * options
  * - typed - infer types [false]
+ * - separator - use custom separator [,]
+ * - delimiter - use custom delimiter ["]
  *
  * @static
  * @param {string} csv the CSV string to parse
@@ -20,7 +22,15 @@ export function parse (csv, options, reviver = v => v) {
   ctx.col = 1
   ctx.row = 1
 
-  const lexer = /"|,|\r\n|\n|\r|[^",\r\n]+/y
+  ctx.options.delimiter = ctx.options.delimiter === undefined ? '"' : options.delimiter;
+  if(ctx.options.delimiter.length > 1 || ctx.options.delimiter.length === 0)
+    throw Error(`CSVError: delimiter must be one character [${ctx.options.separator}]`)
+    
+  ctx.options.separator = ctx.options.separator === undefined ? ',' : options.separator;
+  if(ctx.options.separator.length > 1 || ctx.options.separator.length === 0)
+    throw Error(`CSVError: separator must be one character [${ctx.options.separator}]`)
+
+  const lexer = new RegExp(`${escapeRegExp(ctx.options.delimiter)}|${escapeRegExp(ctx.options.separator)}|\r\n|\n|\r|[^${escapeRegExp(ctx.options.delimiter)}${escapeRegExp(ctx.options.separator)}\r\n]+`, 'y')
   const isNewline = /^(\r\n|\n|\r)$/
 
   let matches = []
@@ -33,10 +43,10 @@ export function parse (csv, options, reviver = v => v) {
     switch (state) {
       case 0: // start of entry
         switch (true) {
-          case match === '"':
+          case match === ctx.options.delimiter:
             state = 3
             break
-          case match === ',':
+          case match === ctx.options.separator:
             state = 0
             valueEnd(ctx)
             break
@@ -53,7 +63,7 @@ export function parse (csv, options, reviver = v => v) {
         break
       case 2: // un-delimited input
         switch (true) {
-          case match === ',':
+          case match === ctx.options.separator:
             state = 0
             valueEnd(ctx)
             break
@@ -69,7 +79,7 @@ export function parse (csv, options, reviver = v => v) {
         break
       case 3: // delimited input
         switch (true) {
-          case match === '"':
+          case match === ctx.options.delimiter:
             state = 4
             break
           default:
@@ -80,11 +90,11 @@ export function parse (csv, options, reviver = v => v) {
         break
       case 4: // escaped or closing delimiter
         switch (true) {
-          case match === '"':
+          case match === ctx.options.delimiter:
             state = 3
             ctx.value += match
             break
-          case match === ',':
+          case match === ctx.options.separator:
             state = 0
             valueEnd(ctx)
             break
@@ -114,6 +124,8 @@ export function parse (csv, options, reviver = v => v) {
  *
  * options
  * - eof - add a trailing newline at the end of file [true]
+ * - separator - use custom separator [,]
+ * - delimiter - use custom delimiter ["]
  *
  * @static
  * @param {Array} array the input array to stringify
@@ -129,19 +141,27 @@ export function stringify (array, options = {}, replacer = v => v) {
   ctx.col = 1
   ctx.output = ''
 
-  const needsDelimiters = /"|,|\r\n|\n|\r/
+  ctx.options.delimiter = ctx.options.delimiter === undefined ? '"' : options.delimiter;
+  if(ctx.options.delimiter.length > 1 || ctx.options.delimiter.length === 0)
+    throw Error(`CSVError: delimiter must be one character [${ctx.options.separator}]`)
+    
+  ctx.options.separator = ctx.options.separator === undefined ? ',' : options.separator;
+  if(ctx.options.separator.length > 1 || ctx.options.separator.length === 0)
+    throw Error(`CSVError: separator must be one character [${ctx.options.separator}]`)
+
+  const needsDelimiters = new RegExp(`${escapeRegExp(ctx.options.delimiter)}|${escapeRegExp(ctx.options.separator)}|\r\n|\n|\r`)
 
   array.forEach((row, rIdx) => {
     let entry = ''
     ctx.col = 1
     row.forEach((col, cIdx) => {
       if (typeof col === 'string') {
-        col = col.replace(/"/g, '""')
-        col = needsDelimiters.test(col) ? `"${col}"` : col
+        col = col.replace(ctx.options.delimiter, `${ctx.options.delimiter}${ctx.options.delimiter}`)
+        col = needsDelimiters.test(col) ? `${ctx.options.delimiter}${col}${ctx.options.delimiter}` : col
       }
       entry += replacer(col, ctx.row, ctx.col)
       if (cIdx !== row.length - 1) {
-        entry += ','
+        entry += ctx.options.separator
       }
       ctx.col++
     })
@@ -191,4 +211,9 @@ function inferType (value) {
     default:
       return value
   }
+}
+
+/** @private */
+function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }

@@ -3,6 +3,8 @@
  *
  * options
  * - typed - infer types [false]
+ * - separator - use custom separator [,]
+ * - delimiter - use custom delimiter ["]
  *
  * @static
  * @param {string} csv the CSV string to parse
@@ -16,6 +18,8 @@ export function parse(csv: string, options?: any, reviver?: Function): any[];
  *
  * options
  * - eof - add a trailing newline at the end of file [true]
+ * - separator - use custom separator [,]
+ * - delimiter - use custom delimiter ["]
  *
  * @static
  * @param {Array} array the input array to stringify
