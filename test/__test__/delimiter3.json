@@ -1,10 +1,10 @@
 {
     "description": [
-      "When options.separator is set the parser uses this character as separator"
+      "When options.delimiter is set stringify uses this character as delimiter"
     ],
     "csv": [
-      "123;456;789",
-      "false;true;\"Test;with separator\"",
+      "123,456,789",
+      "false,true,'Test,with separator'",
       ""
     ],
     "json": [
@@ -16,7 +16,7 @@
       [
         "false",
         "true",
-        "Test;with separator"
+        "Test,with separator"
       ]
     ]
   }

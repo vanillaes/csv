@@ -139,19 +139,27 @@ export function stringify (array, options = {}, replacer = v => v) {
   ctx.col = 1
   ctx.output = ''
 
-  const needsDelimiters = /"|,|\r\n|\n|\r/
+  ctx.options.delimiter = ctx.options.delimiter === undefined ? '"' : options.delimiter;
+  if(ctx.options.delimiter.length > 1 | ctx.options.delimiter.length === 0)
+    throw Error(`CSVError: delimiter must be one character [${ctx.options.separator}]`)
+    
+  ctx.options.separator = ctx.options.separator === undefined ? ',' : options.separator;
+  if(ctx.options.separator.length > 1 | ctx.options.separator.length === 0)
+    throw Error(`CSVError: separator must be one character [${ctx.options.separator}]`)
+
+  const needsDelimiters = new RegExp(`${escapeRegExp(ctx.options.delimiter)}|${escapeRegExp(ctx.options.separator)}|\r\n|\n|\r`)
 
   array.forEach((row, rIdx) => {
     let entry = ''
     ctx.col = 1
     row.forEach((col, cIdx) => {
       if (typeof col === 'string') {
-        col = col.replace(/"/g, '""')
-        col = needsDelimiters.test(col) ? `"${col}"` : col
+        col = col.replace(ctx.options.delimiter, `${ctx.options.delimiter}${ctx.options.delimiter}`)
+        col = needsDelimiters.test(col) ? `${ctx.options.delimiter}${col}${ctx.options.delimiter}` : col
       }
       entry += replacer(col, ctx.row, ctx.col)
       if (cIdx !== row.length - 1) {
-        entry += ','
+        entry += ctx.options.separator
       }
       ctx.col++
     })

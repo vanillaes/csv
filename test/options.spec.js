@@ -15,6 +15,7 @@ const separator1 = require('./__test__/separator1.json')
 const separator2 = require('./__test__/separator2.json')
 const delimiter1 = require('./__test__/delimiter1.json')
 const delimiter2 = require('./__test__/delimiter2.json')
+const delimiter3 = require('./__test__/delimiter3.json')
 
 test('Reviver #1 - The reviver should append 1 to each value', (t) => {
   const expect = reviver1.json
@@ -119,6 +120,15 @@ test('Separator #3 - The separator must be one character', (t) => {
   t.end()
 })
 
+test('Separator #4 - When set stringify should use this character as separator', (t) => {
+  const expect = separator1.csv.join('\n')
+  const actual = CSV.stringify(separator1.json, { separator: ';' })
+
+  t.deepEqual(actual, expect) 
+
+  t.end()
+})
+
 test('Delimiter #1 - When set the parser should use this character as delimiter', (t) => {
   const expect = delimiter1.json
   const actual = CSV.parse(delimiter1.csv.join('\n'), { delimiter: '\'' })
@@ -146,6 +156,16 @@ test('Delimiter #3 - The delimiter must be one character', (t) => {
     () => CSV.parse(delimiter1.csv.join('\n'), { delimiter: '==' }),
     /delimiter must be one character/
   )
+
+  t.end()
+})
+
+
+test('Delimiter #4 - When set stringify should use this character as delimiter', (t) => {
+  const expect = delimiter3.csv.join('\n')
+  const actual = CSV.stringify(delimiter3.json, { delimiter: '\'' })
+
+  t.deepEqual(actual, expect)
 
   t.end()
 })
