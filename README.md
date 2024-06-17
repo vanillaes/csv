@@ -74,9 +74,9 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 
 ```javascript
 const csv = `
-"header1,header2,header3"
-"aaa,bbb,ccc"
-"zzz,yyy,xxx"
+header1,header2,header3
+aaa,bbb,ccc
+zzz,yyy,xxx
 `;
 const parsed = parse(csv)
 console.log(parsed);
