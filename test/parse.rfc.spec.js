@@ -28,6 +28,15 @@ test('RFC Rule #2 - Trailing newline at the end of the file omitted', (t) => {
   t.end()
 })
 
+test('RFC Rule #2 (single column) - Trailing newline at the end of the file omitted', (t) => {
+  const expect = rfc2.json2
+  const actual = parse(rfc2.csv2.join('\n'))
+
+  t.deepEqual(actual, expect)
+
+  t.end()
+})
+
 test('RFC Rule #3 - First row contains header data', (t) => {
   const expect = rfc3.json
   const actual = parse(rfc3.csv.join('\n'))
