@@ -1,6 +1,6 @@
 {
   "name": "@vanillaes/csv",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "description": "A modern, fast, RFC 4180 compliant parser for JS",
   "keywords": [
     "esm",
@@ -22,7 +22,10 @@
       "url": "http://coltonehrman.com"
     }
   ],
-  "repository": "http://github.com/vanillaes/csv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanillaes/csv.git"
+  },
   "type": "module",
   "exports": {
     "import": "./index.js",
