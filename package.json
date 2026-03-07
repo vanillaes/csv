@@ -36,10 +36,10 @@
     "test": "tape-es",
     "test:watch": "tape-watch-es",
     "lint": "esmtk lint",
-    "types": "npx -p typescript tsc index.js  -t esnext --allowJS --checkJS --skipLibCheck --noEmit",
+    "types": "esmtk types index.js",
     "build": "npm run build:min && npm run build:typings",
     "build:min": "esmtk minify index.js index.min.js",
-    "build:typings": "npx -p typescript tsc index.js  -t esnext --allowJS --checkJS --skipLibCheck --declaration --emitDeclarationOnly --noEmitOnError",
+    "build:typings": "esmtk typings index.js",
     "clean": "npm run clean:builds && npm run clean:typings",
     "clean:builds": "npx rimraf index.min.js",
     "clean:typings": "npx rimraf *.d.ts",
@@ -48,7 +48,7 @@
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
-    "esmtk": "^0.5.13",
+    "@vanillaes/esmtk": "^0.9.0",
     "tape-es": "^1.2.16"
   },
   "engines": {
