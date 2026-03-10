@@ -34,7 +34,7 @@
   },
   "scripts": {
     "test": "tape-es",
-    "test:watch": "tape-watch-es",
+    "test:watch": "tape-es --watch",
     "lint": "esmtk lint",
     "types": "esmtk types ./src/index.js",
     "build": "npm run build:min && npm run build:typings",
@@ -49,9 +49,6 @@
   },
   "devDependencies": {
     "@vanillaes/esmtk": "^0.9.0",
-    "tape-es": "^1.2.16"
-  },
-  "engines": {
-    "node": ">=14"
+    "@vanillaes/tape-es": "^2.0.0"
   }
 }
