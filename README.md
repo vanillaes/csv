@@ -27,7 +27,7 @@ Import directly from the local path or a CDN
 
 ```html
 <script type="module">
-import { parse } from 'path/to/csv/index.js'
+import { parse } from 'path/to/csv/src/index.js'
 </script>
 ```
 
@@ -35,7 +35,7 @@ The minified version can be imported from
 
 ```html
 <script type="module">
-import { parse } from 'path/to/csv/index.min.js'
+import { parse } from 'path/to/csv/src/index.min.js'
 </script>
 ```
 
@@ -50,7 +50,7 @@ npm install @vanillaes/csv
 Import using the module path
 
 ```javascript
-import { parse } from '@vanillaes/csv'
+import { parse, stringify } from '@vanillaes/csv'
 ```
 ## Usage
 
