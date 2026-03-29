@@ -178,15 +178,16 @@ function entryEnd (ctx) {
 
 /** @private */
 function inferType (value) {
-  const isNumber = /.\./
+  const isFloat = /[+-]?(\d*[.])?\d+/
+  const isNumber = /\d+/
 
   switch (true) {
     case value === 'true':
     case value === 'false':
       return value === 'true'
-    case isNumber.test(value):
+    case isFloat.test(value):
       return parseFloat(value)
-    case isFinite(value):
+    case isNumber.test(value):
       return parseInt(value)
     default:
       return value
