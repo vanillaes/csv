@@ -6,7 +6,6 @@ CSV is a universal JavaScript CSV parser designed specifically to be simple, fas
   <a href="https://github.com/vanillaes/csv/releases"><img src="https://badgen.net/github/tag/vanillaes/csv?cache-control=no-cache" alt="GitHub Release"></a>
   <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/v/@vanillaes/csv?icon=npm" alt="NPM Version"></a>
   <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/dm/@vanillaes/csv?icon=npm" alt="NPM Downloads"></a>
-  <a href="https://bundlephobia.com/result?p=@vanillaes/csv"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/csv" alt="Bundlephobia"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Release/badge.svg" alt="Release Status"></a>
 </div>
