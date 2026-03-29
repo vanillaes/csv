@@ -1,13 +1,15 @@
 /**
+ * @callback Reviver
+ * @param {string} value the value to be transformed
+ * @returns {boolean | number | string} the transformed value
+ */
+
+/**
  * Parse takes a string of CSV data and converts it to a 2 dimensional array
- *
- * options
- * - typed - infer types [false]
- *
  * @static
  * @param {string} csv the CSV string to parse
- * @param {Object} [options] an object containing the options
- * @param {Function} [reviver] a custom function to modify the values
+ * @param {object} [options] an object containing the options
+ * @param {Reviver} [reviver] a custom function to modify the values
  * @returns {Array} a 2 dimensional array of `[entries][values]`
  */
 export function parse (csv, options, reviver = v => v) {
@@ -110,15 +112,19 @@ export function parse (csv, options, reviver = v => v) {
 }
 
 /**
+ * @callback Replacer
+ * @param {string} value the value to be transformed
+ * @param {number} row the row of the value
+ * @param {number} col the column of the value
+ * @returns {boolean | number | string} the transformed value
+ */
+
+/**
  * Stringify takes a 2 dimensional array of `[entries][values]` and converts them to CSV
- *
- * options
- * - eof - add a trailing newline at the end of file [true]
- *
  * @static
  * @param {Array} array the input array to stringify
- * @param {Object} [options] an object containing the options
- * @param {Function} [replacer] a custom function to modify the values
+ * @param {object} [options] an object containing the options
+ * @param {Replacer} [replacer] a custom function to modify the values
  * @returns {string} the CSV string
  */
 export function stringify (array, options = {}, replacer = v => v) {
@@ -160,7 +166,10 @@ export function stringify (array, options = {}, replacer = v => v) {
   return ctx.output
 }
 
-/** @private */
+/**
+ * Transition - end of value
+ * @param {object} ctx context
+ */
 function valueEnd (ctx) {
   const value = ctx.options.typed ? inferType(ctx.value) : ctx.value
   ctx.entry.push(ctx.reviver(value, ctx.row, ctx.col))
@@ -168,7 +177,10 @@ function valueEnd (ctx) {
   ctx.col++
 }
 
-/** @private */
+/**
+ * Transition - end of entry
+ * @param {object} ctx context
+ */
 function entryEnd (ctx) {
   ctx.output.push(ctx.entry)
   ctx.entry = []
@@ -176,7 +188,11 @@ function entryEnd (ctx) {
   ctx.col = 1
 }
 
-/** @private */
+/**
+ * Infer the type based on the value
+ * @param {string} value raw string value
+ * @returns {boolean | number | string} value converted to the correct type
+ */
 function inferType (value) {
   const isFloat = /[+-]?(\d*[.])?\d+/
   const isNumber = /\d+/
