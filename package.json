@@ -36,19 +36,16 @@
     "test": "tape-es",
     "test:watch": "tape-es --watch",
     "lint": "esmtk lint",
-    "types": "esmtk types ./src/index.js",
+    "type": "esmtk type ./src/index.js",
     "build": "npm run build:min && npm run build:typings",
     "build:min": "esmtk minify ./src/index.js ./src/index.min.js",
     "build:typings": "esmtk typings ./src/index.js",
-    "clean": "npm run clean:builds && npm run clean:typings",
-    "clean:builds": "npx rimraf ./src/index.min.js",
-    "clean:typings": "npx rimraf ./src/index.d.ts",
-    "package": "npx rimraf package && npm pack | tail -n 1 | xargs tar -xf",
-    "preversion": "npm test && npm run lint && npm run types",
+    "clean": "esmtk clean --minify --typings",
+    "preview": "esmtk preview",
+    "preversion": "npm test && npm run lint && npm run type",
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
-    "@vanillaes/esmtk": "^0.9.0",
-    "@vanillaes/tape-es": "^2.0.0"
+    "@vanillaes/esmtk": "^1.1.0"
   }
 }
