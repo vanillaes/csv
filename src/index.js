@@ -106,6 +106,14 @@ export function parse (csv, options, reviver = v => v) {
   if (ctx.entry.length !== 0) {
     valueEnd(ctx)
     entryEnd(ctx)
+    return ctx.output
+  }
+
+  // Flush the last value - if it's a single-column csv
+  if (state === 2) {
+    valueEnd(ctx)
+    entryEnd(ctx)
+    return ctx.output
   }
 
   return ctx.output

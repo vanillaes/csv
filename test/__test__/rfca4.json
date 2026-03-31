@@ -1,0 +1,17 @@
+{
+  "description": [
+    "Entries may contain only one column"
+  ],
+  "csv": [
+    "aaa",
+    "zzz"
+  ],
+  "json": [
+    [
+      "aaa"
+    ],
+    [
+      "zzz"
+    ]
+  ]
+}
