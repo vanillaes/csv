@@ -49,7 +49,7 @@ test('Typed #2- When set to false the parser should not infer the value types', 
 
 test('Replacer #1 - The replacer should append 1 to each value', (t) => {
   const expect = replacer1.csv.join('\n')
-  const actual = CSV.stringify(replacer1.json, {}, (value) => value + '1')
+  const actual = CSV.stringify(replacer1.json, null, (value) => value + '1')
 
   t.deepEqual(actual, expect)
 
@@ -58,7 +58,7 @@ test('Replacer #1 - The replacer should append 1 to each value', (t) => {
 
 test('Replacer #2 - The replacer should output the row:col values', (t) => {
   const expect = replacer2.csv.join('\n')
-  const actual = CSV.stringify(replacer2.json, {}, (value, row, col) => `${row}:${col}`)
+  const actual = CSV.stringify(replacer2.json, null, (value, row, col) => `${row}:${col}`)
 
   t.deepEqual(actual, expect)
 

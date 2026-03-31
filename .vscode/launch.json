@@ -6,6 +6,16 @@
       "type": "node",
       "request": "launch",
       "program": "${file}"
-    }
+    },
+    {
+      "name": "Tape-ES (Test)",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": [
+          "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/node_modules/.bin/tape-es",
+      "console": "integratedTerminal",
+    },
   ]
 }
