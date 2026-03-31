@@ -3,13 +3,11 @@
 CSV is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
 
 <div align="center">
-  <a href="https://github.com/vanillaes/csv/releases"><img src="https://badgen.net/github/tag/vanillaes/csv" alt="GitHub Release"></a>
-  <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/v/@vanillaes/csv" alt="NPM Release"></a>
-  <a href="https://bundlephobia.com/result?p=@vanillaes/csv"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/csv" alt="Bundlephobia"></a>
+  <a href="https://github.com/vanillaes/csv/releases"><img src="https://badgen.net/github/tag/vanillaes/csv?cache-control=no-cache" alt="GitHub Release"></a>
+  <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/v/@vanillaes/csv?icon=npm" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/dm/@vanillaes/csv?icon=npm" alt="NPM Downloads"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Release/badge.svg" alt="Release Status"></a>
-
-  <a href="https://discord.gg/aSWYgtybzV"><img alt="Discord" src="https://img.shields.io/discord/723296249121603604?color=%23738ADB"></a>
 </div>
 
 ## Features
@@ -28,7 +26,7 @@ Import directly from the local path or a CDN
 
 ```html
 <script type="module">
-import { parse } from 'path/to/csv/index.js'
+import { parse } from 'path/to/csv/src/index.js'
 </script>
 ```
 
@@ -36,7 +34,7 @@ The minified version can be imported from
 
 ```html
 <script type="module">
-import { parse } from 'path/to/csv/index.min.js'
+import { parse } from 'path/to/csv/src/index.min.js'
 </script>
 ```
 
@@ -51,7 +49,7 @@ npm install @vanillaes/csv
 Import using the module path
 
 ```javascript
-import { parse } from '@vanillaes/csv'
+import { parse, stringify } from '@vanillaes/csv'
 ```
 ## Usage
 
@@ -74,9 +72,9 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 
 ```javascript
 const csv = `
-"header1,header2,header3"
-"aaa,bbb,ccc"
-"zzz,yyy,xxx"
+header1,header2,header3
+aaa,bbb,ccc
+zzz,yyy,xxx
 `;
 const parsed = parse(csv)
 console.log(parsed);

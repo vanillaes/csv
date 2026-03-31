@@ -1,0 +1,7 @@
+name: Pull Request
+
+on: [pull_request]
+  
+jobs:
+  ci:
+    uses: vanillaes/.github/.github/workflows/verify.yml@main

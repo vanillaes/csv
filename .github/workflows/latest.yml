@@ -1,39 +1,14 @@
 name: Latest
 
-on: 
+on:
   push:
     branches:
       - main
-    tags-ignore:
-      - 'v*'
-  pull_request:
+    paths-ignore:
+      - package.json
+      - package-lock.json
 
 jobs:
-  verify:
-    name: Verify
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [14, 16]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Cache
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache-
-      - name: Install
-        run: npm i
-      - name: Test
-        run: npm t
-      - name: Lint
-        run: npm run lint
-      - name: Types
-        run: npm run types
+  ci:
+    uses: vanillaes/.github/.github/workflows/verify.yml@main
+
