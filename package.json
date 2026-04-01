@@ -46,6 +46,6 @@
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
-    "@vanillaes/esmtk": "^1.2.2"
+    "@vanillaes/esmtk": "^1.2.3"
   }
 }
