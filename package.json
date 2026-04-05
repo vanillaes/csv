@@ -28,9 +28,11 @@
   },
   "type": "module",
   "exports": {
-    "import": "./src/index.js",
-    "types": "./src/index.d.ts",
-    "browser": "./src/index.min.js"
+    ".": {
+      "import": "./src/index.js",
+      "types": "./src/index.d.ts",
+      "browser": "./src/index.min.js"
+    }
   },
   "scripts": {
     "test": "tape-es",

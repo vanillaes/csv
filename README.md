@@ -1,6 +1,8 @@
 <h1 align="center">CSV</h1>
 
-CSV is a universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant.
+<div align="center">A universal JavaScript CSV parser designed specifically to be simple, fast, and spec compliant</div>
+
+<br />
 
 <div align="center">
   <a href="https://github.com/vanillaes/csv/releases"><img src="https://badgen.net/github/tag/vanillaes/csv?cache-control=no-cache" alt="GitHub Release"></a>
