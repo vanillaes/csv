@@ -1,67 +1,60 @@
 /**
- * @typedef Options
- * @property {boolean} [typed] enable type inference?
- */
-/**
  * @callback Reviver
- * @param {boolean | number | string} value the value to be transformed
- * @param {number} row the row of the value
- * @param {number} col the column of the value
- * @returns {boolean | number | string} the transformed value
+ * @param {boolean | number | string} value Raw value
+ * @param {number} row Row of the value
+ * @param {number} col Column of the value
+ * @returns {boolean | number | string} Transformed value
  */
 /**
  * @typedef {object} ParserContext
- * @property {boolean} typed enable type inference?
- * @property {Reviver} reviver the reviver function
- * @property {number} row the current row
- * @property {number} col the current column
- * @property {string} value the current value
- * @property {Array<boolean | number | string>} entry the current entry
- * @property {Array<Array<boolean | number | string>>} output the current output
+ * @property {boolean} typed Enable type inference?
+ * @property {Reviver} reviver Reviver function
+ * @property {number} row Current row
+ * @property {number} col Current column
+ * @property {string} value Current value
+ * @property {Array<boolean | number | string>} entry Current entry
+ * @property {Array<Array<boolean | number | string>>} output Current output
  */
 /**
  * Parse takes a string of CSV data and converts it to a 2 dimensional array
  * @static
- * @param {string} [csv] the CSV string to parse
- * @param {Options} [options] an object containing the options
- * @param {Reviver} [reviver] a custom function to modify the values
- * @returns {Array<Array<boolean | number | string>>} a 2 dimensional array of `[entries][values]`
+ * @param {string} [csv] CSV string to parse
+ * @param {object} [options] CSV 'parse' options
+ * @param {boolean} [options.typed] Enable type inference?
+ * @param {Reviver} [reviver] Custom function to modify the values
+ * @returns {Array<Array<boolean | number | string>>} 2 dimensional array of `[entries][values]`
  */
-export function parse(csv?: string, options?: Options, reviver?: Reviver): Array<Array<boolean | number | string>>;
-export type Options = {
-    /**
-     * enable type inference?
-     */
+export function parse(csv?: string, options?: {
     typed?: boolean | undefined;
-};
+}, reviver?: Reviver): Array<Array<boolean | number | string>>;
 export type Reviver = (value: boolean | number | string, row: number, col: number) => boolean | number | string;
 export type ParserContext = {
     /**
-     * enable type inference?
+     * Enable type inference?
      */
     typed: boolean;
     /**
-     * the reviver function
+     * Reviver function
      */
     reviver: Reviver;
     /**
-     * the current row
+     * Current row
      */
     row: number;
     /**
-     * the current column
+     * Current column
      */
     col: number;
     /**
-     * the current value
+     * Current value
      */
     value: string;
     /**
-     * the current entry
+     * Current entry
      */
     entry: Array<boolean | number | string>;
     /**
-     * the current output
+     * Current output
      */
     output: Array<Array<boolean | number | string>>;
 };

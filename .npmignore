@@ -3,3 +3,4 @@
 test/
 CONTRIBUTING.md
 *.spec.js
+jsr.json

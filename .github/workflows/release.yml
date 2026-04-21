@@ -18,3 +18,7 @@ jobs:
     needs: ci
     uses: vanillaes/.github/.github/workflows/gh.yml@main
     secrets: inherit
+
+  cd-jsr:
+    needs: ci
+    uses: vanillaes/.github/.github/workflows/jsr.yml@main

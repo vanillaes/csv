@@ -36,15 +36,15 @@
   },
   "scripts": {
     "test": "tape-es",
-    "test:watch": "tape-es --watch",
     "lint": "esmtk lint",
-    "type": "esmtk type ./src/index.js",
+    "type": "esmtk type",
     "build": "npm run build:min && npm run build:typings",
-    "build:min": "esmtk minify ./src/index.js ./src/index.min.js",
-    "build:typings": "esmtk typings ./src/index.js",
+    "build:min": "esmtk minify",
+    "build:typings": "esmtk typings",
     "clean": "esmtk clean --minify --typings",
     "preview": "esmtk preview",
     "preversion": "npm test && npm run lint && npm run type",
+    "version": "npm run clean && npm run build && git add **/*.d.ts",
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {

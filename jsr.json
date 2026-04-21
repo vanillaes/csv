@@ -1,0 +1,22 @@
+{
+  "name": "@vanillaes/csv",
+  "version": "4.0.7",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "publish": {
+    "include": [
+      "bin/**/*.js",
+      "src/**/*.js",
+      "src/**/*.d.ts",
+      "LICENSE",
+      "README.md"
+    ],
+    "exclude": [
+      "**/__tests__/**",
+      "bin/**/*.spec.js",
+      "src/**/*.spec.js"
+    ]
+  }
+}

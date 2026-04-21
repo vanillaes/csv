@@ -7,8 +7,9 @@ on:
     paths-ignore:
       - package.json
       - package-lock.json
+    tags-ignore:
+      - 'v*'
 
 jobs:
   ci:
     uses: vanillaes/.github/.github/workflows/verify.yml@main
-

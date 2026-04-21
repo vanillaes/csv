@@ -1,34 +1,30 @@
 /**
- * @typedef {object} Options
- * @property {boolean} [eof] include a newline at the end-of-file?
- */
-
-/**
  * @callback Replacer
- * @param {string} value the value to be transformed
- * @param {number} row the row of the value
- * @param {number} col the column of the value
- * @returns {boolean | number | string} the transformed value
+ * @param {string} value Raw value
+ * @param {number} row Row of the value
+ * @param {number} col Column of the value
+ * @returns {boolean | number | string} Transformed value
  */
 
 /**
  * @typedef {object} StringifyContext
- * @property {boolean} eof include a newline at the end-of-file?
- * @property {Replacer} replacer a custom function to modify the values
- * @property {number} row the current row
- * @property {number} col the current column
- * @property {string} value the current value
- * @property {string} entry the current entry
- * @property {string} output the current output
+ * @property {boolean} eof Include a newline at the end-of-file?
+ * @property {Replacer} replacer Replacer function
+ * @property {number} row Current row
+ * @property {number} col Current column
+ * @property {string} value Current value
+ * @property {string} entry Current entry
+ * @property {string} output Current output
  */
 
 /**
  * Stringify takes a 2 dimensional array of `[entries][values]` and converts them to CSV
  * @static
- * @param {string[][]} [array] the input array to stringify
- * @param {Options} options an object containing the options
- * @param {Replacer} [replacer] a custom function to modify the values
- * @returns {string} the CSV string
+ * @param {string[][]} [array] CSV (2D) array to format
+ * @param {object} [options] CSV 'stringify' options
+ * @param {boolean} [options.eof] Include a newline at the end-of-file?
+ * @param {Replacer} [replacer] Custom function to modify the values
+ * @returns {string} CSV string
  */
 export function stringify (array = [], options = {}, replacer = v => v) {
   /** @type {StringifyContext} */

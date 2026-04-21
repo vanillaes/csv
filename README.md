@@ -6,8 +6,9 @@
 
 <div align="center">
   <a href="https://github.com/vanillaes/csv/releases"><img src="https://badgen.net/github/tag/vanillaes/csv?cache-control=no-cache" alt="GitHub Release"></a>
-  <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/v/@vanillaes/csv?icon=npm" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/dm/@vanillaes/csv?icon=npm" alt="NPM Downloads"></a>
+  <a href="https://npmjs.com/package/@vanillaes/csv"><img src="https://badgen.net/npm/dw/@vanillaes/csv?icon=npm" alt="NPM Weekly Downloads"></a>
+  <a href="https://jsr.io/@vanillaes/csv"><img src="https://jsr.io/badges/@vanillaes/csv/weekly-downloads" alt="JSR Weekly Downloads"></a>
+  <a href="https://jsr.io/@vanillaes/csv"><img src="https://jsr.io/badges/@vanillaes/csv/score" alt="JSR Score"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/csv/actions"><img src="https://github.com/vanillaes/csv/workflows/Release/badge.svg" alt="Release Status"></a>
 </div>
@@ -65,8 +66,8 @@ Takes a string of CSV data and converts it to a 2 dimensional array of `[entries
 
 - csv - the CSV string to parse
 - options
-  - typed - infer types (default `false`)
-- reviver<sup>1</sup> - a custom function to modify the output (default `(value) => value`)
+  - typed - Infer types (default `false`)
+- reviver<sup>1</sup> - A custom function to modify the output (default `(value) => value`)
 
 *<sup>1</sup> Values for `row` and `col` are 1-based.*
 
@@ -97,8 +98,8 @@ Takes a 2 dimensional array of `[entries][values]` and converts them to CSV
 
 - array - the input array to stringify
 - options
-  - eof - add a trailing newline at the end of file (default `true`)
-- replacer<sup>1</sup> - a custom function to modify the values (default `(value) => value`)
+  - eof - Add a trailing newline at the end of file (default `true`)
+- replacer<sup>1</sup> - A custom function to modify the values (default `(value) => value`)
 
 *<sup>1</sup> Values for `row` and `col` are 1-based.*
 
