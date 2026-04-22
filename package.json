@@ -44,7 +44,7 @@
     "clean": "esmtk clean --minify --typings",
     "preview": "esmtk preview",
     "preversion": "npm test && npm run lint && npm run type",
-    "version": "npm run clean && npm run build && git add **/*.d.ts",
+    "version": "npm run clean && npm run build && git add **/*.d.ts **/*.min.js",
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
